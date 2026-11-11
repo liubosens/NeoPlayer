@@ -44,7 +44,11 @@
 
 ## 安装
 
-### 稳定版
+### 简体中文版（本仓库）
+
+[前往 Releases 下载 mpvExtended 简体中文版](https://github.com/liubosens/NeoPlayer/releases/tag/zh-cn-r1)，提供 arm64-v8a / universal 的 Release 已签名包与 Debug 包。
+
+### 上游稳定版
 
 从 [GitHub Releases](https://github.com/marlboro-advance/mpvEx/releases) 下载最新稳定版。
 
