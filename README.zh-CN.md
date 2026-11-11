@@ -5,7 +5,7 @@
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/marlboro-advance/mpvex.svg?logo=github&label=GitHub&cacheSeconds=3600)](https://github.com/marlboro-advance/mpvex/releases/latest)
 [![GitHub all releases](https://img.shields.io/github/downloads/marlboro-advance/mpvex/total?logo=github&cacheSeconds=3600)](https://github.com/marlboro-advance/mpvex/releases/latest)
 
-[简体中文](README.zh-CN.md) | [English](README.md)
+[简体中文](README.md) | [English](README.en.md)
 
 **mpvExtended 是基于 [mpv-android](https://github.com/mpv-android/mpv-android)、构建于 libmpv 之上的播放器分支。目标是把 mpv 的强大能力、简洁易用的界面与更多实用功能结合起来。本仓库提供完整的简体中文界面。**
 
@@ -37,7 +37,8 @@
 - 硬编码文案：原项目有大量写死在 Compose 代码里的英文，本次已抽为字符串资源或替换为中文文案，包括设置页、文件浏览器、播放列表面板、提示消息与播放器按钮标签。
 - 官网：`website/` 目录已中文化。
 - 应用商店描述：`fastlane/metadata/android/zh-CN/`。
-- 英文原文保留在 `values/strings.xml` 与 `README.md`，未做删改。
+- 仓库首页：`README.md` 已改为中文，英文原文移至 `README.en.md`，`README.zh-CN.md` 保留为镜像。
+- 英文原文保留在 `values/strings.xml` 与 `README.en.md`，未做删改。
 
 ---
 
