@@ -409,8 +409,7 @@ fun SeriesDetailsSection(
                       tvShow.seasons.forEach { season ->
                           DropdownMenuItem(
                               text = { 
-                                Text(
-                                  "Season ${season.season_number}",
+                                Text(stringResource(R.string.season_number, season.season_number),
                                   style = MaterialTheme.typography.bodyLarge
                                 ) 
                               },
@@ -460,8 +459,7 @@ fun SeriesDetailsSection(
                           DropdownMenuItem(
                               text = { 
                                 Column(modifier = Modifier.padding(vertical = 4.dp)) {
-                                  Text(
-                                    "Ep ${episode.episode_number}", 
+                                  Text(stringResource(R.string.episode_number, episode.episode_number), 
                                     style = MaterialTheme.typography.bodyLarge,
                                     fontWeight = FontWeight.Bold
                                   )

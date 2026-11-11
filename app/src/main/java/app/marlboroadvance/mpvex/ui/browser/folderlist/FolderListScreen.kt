@@ -124,6 +124,7 @@ import my.nanihadesuka.compose.LazyVerticalGridScrollbar
 import my.nanihadesuka.compose.ScrollbarSettings
 import org.koin.compose.koinInject
 import java.io.File
+import app.marlboroadvance.mpvex.R
 
 @Serializable
 object FolderListScreen : Screen {
@@ -309,11 +310,11 @@ object FolderListScreen : Screen {
                 onSearch = { },
                 expanded = false,
                 onExpandedChange = { },
-                placeholder = { Text("Search folders and videos...") },
+                placeholder = { Text(stringResource(R.string.search_folders_and_videos)) },
                 leadingIcon = {
                   Icon(
                     imageVector = Icons.Filled.Search,
-                    contentDescription = "Search",
+                    contentDescription = "搜索",
                   )
                 },
                 trailingIcon = {
@@ -325,7 +326,7 @@ object FolderListScreen : Screen {
                   ) {
                     Icon(
                       imageVector = Icons.Filled.Close,
-                      contentDescription = "Cancel",
+                      contentDescription = "取消",
                     )
                   }
                 },
@@ -426,7 +427,7 @@ object FolderListScreen : Screen {
                   TooltipAnchorPosition.Above
                 }
               ),
-              tooltip = { PlainTooltip { Text("Toggle menu") } },
+              tooltip = { PlainTooltip { Text(stringResource(R.string.toggle_menu)) } },
               state = rememberTooltipState(),
             ) {
               ToggleFloatingActionButton(
@@ -457,7 +458,7 @@ object FolderListScreen : Screen {
               filePicker.launch(arrayOf("video/*"))
             },
             icon = { Icon(Icons.Filled.FileOpen, contentDescription = null) },
-            text = { Text(text = "Open File") },
+            text = { Text(text = "打开文件") },
           )
 
           FloatingActionButtonMenuItem(
@@ -472,7 +473,7 @@ object FolderListScreen : Screen {
               }
             },
             icon = { Icon(Icons.Filled.History, contentDescription = null) },
-            text = { Text(text = "Recently Played") },
+            text = { Text(text = "最近播放") },
           )
 
           FloatingActionButtonMenuItem(
@@ -481,7 +482,7 @@ object FolderListScreen : Screen {
               showLinkDialog.value = true
             },
             icon = { Icon(Icons.Filled.Link, contentDescription = null) },
-            text = { Text(text = "Open Link") },
+            text = { Text(text = "打开链接") },
           )
         }
       },
@@ -504,8 +505,8 @@ object FolderListScreen : Screen {
                   // No results
                   EmptyState(
                     icon = Icons.Filled.Search,
-                    title = "No results found",
-                    message = "No folders or videos match your search query",
+                    title = "未找到结果",
+                    message = "没有匹配的文件夹或视频",
                     modifier = Modifier.fillMaxSize(),
                   )
                 } else {
@@ -650,14 +651,14 @@ private fun FolderListContent(
         if (showLoading) {
           LoadingState(
             icon = Icons.Filled.Folder,
-            title = "Scanning for videos...",
-            message = scanStatus ?: "Please wait while we search your device",
+            title = "正在扫描视频…",
+            message = scanStatus ?: "正在搜索设备，请稍候",
           )
         } else if (showEmpty) {
           EmptyState(
             icon = Icons.Filled.Folder,
-            title = "No video folders found",
-            message = "Add some video files to your device to see them here",
+            title = "未找到视频文件夹",
+            message = "向设备添加视频文件后即可在此查看",
           )
         }
       }
@@ -909,7 +910,7 @@ private fun FolderSortDialog(
   SortDialog(
     isOpen = isOpen,
     onDismiss = onDismiss,
-    title = if (isAlbumView) "Sort & View Options" else "View Options",
+    title = if (isAlbumView) "排序与视图选项" else "视图选项",
     sortType = sortType.displayName,
     onSortTypeChange = { typeName ->
       FolderSortType.entries
@@ -933,16 +934,16 @@ private fun FolderSortDialog(
     getLabelForType = { type, _ ->
       when (type) {
         FolderSortType.Title.displayName -> Pair("A-Z", "Z-A")
-        FolderSortType.Date.displayName -> Pair("Oldest", "Newest")
-        FolderSortType.Size.displayName -> Pair("Smallest", "Largest")
-        else -> Pair("Asc", "Desc")
+        FolderSortType.Date.displayName -> Pair("最早", "最新")
+        FolderSortType.Size.displayName -> Pair("最小", "最大")
+        else -> Pair("升序", "降序")
       }
     },
     showSortOptions = isAlbumView,
     viewModeSelector = ViewModeSelector(
-      label = "View Mode",
-      firstOptionLabel = "Folder",
-      secondOptionLabel = "Tree",
+      label = "视图模式",
+      firstOptionLabel = "文件夹",
+      secondOptionLabel = "目录树",
       firstOptionIcon = Icons.Filled.ViewModule,
       secondOptionIcon = Icons.Filled.AccountTree,
       isFirstOptionSelected = folderViewMode == FolderViewMode.AlbumView,
@@ -953,9 +954,9 @@ private fun FolderSortDialog(
       },
     ),
     layoutModeSelector = ViewModeSelector(
-      label = "Layout",
-      firstOptionLabel = "List",
-      secondOptionLabel = "Grid",
+      label = "布局",
+      firstOptionLabel = "列表",
+      secondOptionLabel = "网格",
       firstOptionIcon = Icons.AutoMirrored.Filled.ViewList,
       secondOptionIcon = Icons.Filled.GridView,
       isFirstOptionSelected = mediaLayoutMode == MediaLayoutMode.LIST,
@@ -967,32 +968,32 @@ private fun FolderSortDialog(
     ),
     visibilityToggles = listOf(
       VisibilityToggle(
-        label = "Full Name",
+        label = "全名",
         checked = unlimitedNameLines,
         onCheckedChange = { appearancePreferences.unlimitedNameLines.set(it) },
       ),
       VisibilityToggle(
-        label = "Path",
+        label = "路径",
         checked = showFolderPath,
         onCheckedChange = { browserPreferences.showFolderPath.set(it) },
       ),
       VisibilityToggle(
-        label = "Total Videos",
+        label = "视频总数",
         checked = showTotalVideosChip,
         onCheckedChange = { browserPreferences.showTotalVideosChip.set(it) },
       ),
       VisibilityToggle(
-        label = "Total Duration",
+        label = "总时长",
         checked = showTotalDurationChip,
         onCheckedChange = { browserPreferences.showTotalDurationChip.set(it) },
       ),
       VisibilityToggle(
-        label = "Folder Size",
+        label = "文件夹大小",
         checked = showTotalSizeChip,
         onCheckedChange = { browserPreferences.showTotalSizeChip.set(it) },
       ),
       VisibilityToggle(
-        label = "Date",
+        label = "日期",
         checked = showDateChip,
         onCheckedChange = { browserPreferences.showDateChip.set(it) },
       ),

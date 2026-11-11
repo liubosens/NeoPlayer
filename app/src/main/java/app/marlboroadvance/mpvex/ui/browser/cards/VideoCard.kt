@@ -172,14 +172,14 @@ fun VideoCard(
             thumbnail?.let {
               Image(
                 bitmap = it.asImageBitmap(),
-                contentDescription = "Thumbnail",
+                contentDescription = "缩略图",
                 modifier = Modifier.matchParentSize(),
                 contentScale = ContentScale.Crop,
               )
             } ?: run {
               Icon(
                 Icons.Filled.PlayArrow,
-                contentDescription = "Play",
+                contentDescription = "播放",
                 modifier = Modifier.size(48.dp),
                 tint = MaterialTheme.colorScheme.secondary,
               )
@@ -187,7 +187,7 @@ fun VideoCard(
           } else {
             Icon(
               Icons.Filled.PlayArrow,
-              contentDescription = "Play",
+              contentDescription = "播放",
               modifier = Modifier.size(48.dp),
               tint = MaterialTheme.colorScheme.secondary,
             )
@@ -346,8 +346,7 @@ fun VideoCard(
                  )
               }
             } else if (showFramerateInResolution && hasFps) {
-                 Text(
-                   "$fpsOnly FPS",
+                 Text(stringResource(R.string.fps_value, fpsOnly),
                    style = MaterialTheme.typography.labelSmall,
                    modifier = Modifier
                      .background(
@@ -449,14 +448,14 @@ fun VideoCard(
             thumbnail?.let {
               Image(
                 bitmap = it.asImageBitmap(),
-                contentDescription = "Thumbnail",
+                contentDescription = "缩略图",
                 modifier = Modifier.matchParentSize(),
                 contentScale = ContentScale.Crop,
               )
             } ?: run {
               Icon(
                 Icons.Filled.PlayArrow,
-                contentDescription = "Play",
+                contentDescription = "播放",
                 modifier = Modifier.size(48.dp),
                 tint = MaterialTheme.colorScheme.secondary,
               )
@@ -464,7 +463,7 @@ fun VideoCard(
           } else {
             Icon(
               Icons.Filled.PlayArrow,
-              contentDescription = "Play",
+              contentDescription = "播放",
               modifier = Modifier.size(48.dp),
               tint = MaterialTheme.colorScheme.secondary,
             )
@@ -630,8 +629,7 @@ fun VideoCard(
               }
             } else if (showFramerateInResolution && hasFps) {
               // Resolution is hidden, but framerate is enabled -> show only framerate
-              Text(
-                "$fpsOnly FPS",
+              Text(stringResource(R.string.fps_value, fpsOnly),
                 style = MaterialTheme.typography.labelSmall,
                 modifier =
                   Modifier

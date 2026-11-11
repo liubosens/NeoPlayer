@@ -166,7 +166,7 @@ enum class FilterPreset(
 ) {
   NONE(
     displayName = "None",
-    description = "Default settings with no adjustments",
+    description = "默认设置，不做调整",
     brightness = 0,
     saturation = 0,
     contrast = 0,
@@ -176,7 +176,7 @@ enum class FilterPreset(
   ),
   VIVID(
     displayName = "Vivid",
-    description = "Enhanced colors with crisp details",
+    description = "色彩增强，细节更清晰",
     brightness = 5,
     saturation = 25,
     contrast = 15,
@@ -186,7 +186,7 @@ enum class FilterPreset(
   ),
   WARM_TONE(
     displayName = "Warm Tone",
-    description = "Warmer colors with golden tint",
+    description = "偏金的暖色调",
     brightness = 5,
     saturation = 10,
     contrast = 5,
@@ -196,7 +196,7 @@ enum class FilterPreset(
   ),
   COOL_TONE(
     displayName = "Cool Tone",
-    description = "Cooler colors with blue tint",
+    description = "偏蓝的冷色调",
     brightness = 0,
     saturation = 5,
     contrast = 10,
@@ -206,7 +206,7 @@ enum class FilterPreset(
   ),
   SOFT_PASTEL(
     displayName = "Soft Pastel",
-    description = "Soft, muted colors with gentle look",
+    description = "柔和低饱和配色",
     brightness = 10,
     saturation = -15,
     contrast = -10,
@@ -216,7 +216,7 @@ enum class FilterPreset(
   ),
   CINEMATIC(
     displayName = "Cinematic",
-    description = "Film-like color grading with depth",
+    description = "胶片质感，层次更丰富",
     brightness = -5,
     saturation = -10,
     contrast = 20,
@@ -226,7 +226,7 @@ enum class FilterPreset(
   ),
   DRAMATIC(
     displayName = "Dramatic",
-    description = "High contrast dramatic look",
+    description = "高对比度，戏剧化风格",
     brightness = -10,
     saturation = 15,
     contrast = 30,
@@ -236,7 +236,7 @@ enum class FilterPreset(
   ),
   NIGHT_MODE(
     displayName = "Night Mode",
-    description = "Reduced brightness for dark environments",
+    description = "降低亮度，适合暗光环境",
     brightness = -20,
     saturation = -5,
     contrast = 5,
@@ -246,7 +246,7 @@ enum class FilterPreset(
   ),
   NOSTALGIC(
     displayName = "Nostalgic",
-    description = "Vintage film look with soft focus",
+    description = "复古胶片柔焦风格",
     brightness = 5,
     saturation = -20,
     contrast = 10,
@@ -256,7 +256,7 @@ enum class FilterPreset(
   ),
   GHIBLI_STYLE(
     displayName = "Ghibli Style",
-    description = "Soft, dreamy anime colors",
+    description = "柔和梦幻的动画色彩",
     brightness = 8,
     saturation = 15,
     contrast = -5,
@@ -266,7 +266,7 @@ enum class FilterPreset(
   ),
   NEON_POP(
     displayName = "Neon Pop",
-    description = "Vibrant neon-like colors with edge",
+    description = "鲜明的霓虹配色",
     brightness = 5,
     saturation = 40,
     contrast = 20,
@@ -276,7 +276,7 @@ enum class FilterPreset(
   ),
   DEEP_BLACK(
     displayName = "Deep Black",
-    description = "Enhanced blacks for OLED displays",
+    description = "为 OLED 屏幕增强黑色表现",
     brightness = -15,
     saturation = 5,
     contrast = 25,

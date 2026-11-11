@@ -116,7 +116,7 @@ enum class FolderViewMode {
     get() =
       when (this) {
         AlbumView -> "Folder View"
-        FileManager -> "Tree View"
+        FileManager -> "目录树视图"
       }
 }
 

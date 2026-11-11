@@ -66,6 +66,8 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.Serializable
 import org.koin.compose.koinInject
 import app.marlboroadvance.mpvex.preferences.FolderViewMode
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @Serializable
 object NetworkStreamingScreen : Screen {
@@ -117,7 +119,7 @@ object NetworkStreamingScreen : Screen {
     Scaffold(
         topBar = {
           BrowserTopBar(
-            title = "Network",
+            title = "网络",
             isInSelectionMode = false,
             selectedCount = 0,
             totalCount = 0,
@@ -146,7 +148,7 @@ object NetworkStreamingScreen : Screen {
           ExtendedFloatingActionButton(
             onClick = { showAddSheet = true },
             icon = { Icon(Icons.Filled.Add, contentDescription = null) },
-            text = { Text("Add Connection") },
+            text = { Text(stringResource(R.string.add_connection)) },
             modifier = Modifier.padding(bottom = navigationBarHeight)
           )
         }
@@ -177,7 +179,7 @@ object NetworkStreamingScreen : Screen {
           item {
             Spacer(modifier = Modifier.height(24.dp))
             Text(
-              text = "Local Network",
+              text = "局域网",
               style = MaterialTheme.typography.titleLarge,
               fontWeight = FontWeight.Bold,
               color = MaterialTheme.colorScheme.primary,
@@ -208,14 +210,14 @@ object NetworkStreamingScreen : Screen {
                   )
                   Spacer(modifier = Modifier.height(16.dp))
                   Text(
-                    text = "No network connections",
+                    text = "暂无网络连接",
                     style = MaterialTheme.typography.titleMedium,
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.onSurface, // a
                   )
                   Spacer(modifier = Modifier.height(8.dp))
                   Text(
-                    text = "Add SMB, FTP, or WebDAV connections to browse network files",
+                    text = "添加 SMB、FTP 或 WebDAV 连接以浏览网络文件",
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                     textAlign = TextAlign.Center,
@@ -295,7 +297,7 @@ private fun StreamLinkSection(
     modifier = Modifier.fillMaxWidth(),
   ) {
     Text(
-      text = "Stream Link",
+      text = "流媒体链接",
       style = MaterialTheme.typography.titleLarge,
       fontWeight = FontWeight.Bold,
       color = MaterialTheme.colorScheme.primary,
@@ -313,7 +315,7 @@ private fun StreamLinkSection(
         OutlinedTextField(
           value = linkUrl,
           onValueChange = { linkUrl = it },
-          label = { Text("Video URL") },
+          label = { Text(stringResource(R.string.video_url)) },
           placeholder = {
             Text(
               text = "https://example.com/video.mp4",
@@ -359,7 +361,7 @@ private fun StreamLinkSection(
               modifier = Modifier.padding(end = 8.dp),
             )
             Text(
-              text = "Paste",
+              text = "粘贴",
               fontWeight = FontWeight.Bold,
             )
           }
@@ -383,7 +385,7 @@ private fun StreamLinkSection(
               modifier = Modifier.padding(end = 8.dp),
             )
             Text(
-              text = "Play",
+              text = "播放",
               fontWeight = FontWeight.Bold,
             )
           }

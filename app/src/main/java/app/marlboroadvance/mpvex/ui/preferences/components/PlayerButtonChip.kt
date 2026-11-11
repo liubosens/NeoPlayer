@@ -27,7 +27,7 @@ import app.marlboroadvance.mpvex.preferences.PlayerButton
 import app.marlboroadvance.mpvex.preferences.getPlayerButtonLabel
 
 /**
- * A simple "Quick Settings" style chip for a player button.
+ * A simple "快捷设置" style chip for a player button.
  * Renders text or icons based on the button type.
  */
 @Composable
@@ -77,7 +77,7 @@ fun PlayerButtonChip(
         when (button) {
           PlayerButton.VIDEO_TITLE -> {
             Text(
-              text = "Video Title", // TODO: strings
+              text = "视频标题", // TODO: strings
               fontSize = 15.sp, // Increased font size
               textAlign = TextAlign.Center,
               lineHeight = 14.sp,

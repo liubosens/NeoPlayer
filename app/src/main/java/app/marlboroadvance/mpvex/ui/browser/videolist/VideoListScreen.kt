@@ -114,6 +114,8 @@ import my.nanihadesuka.compose.ScrollbarSettings
 import org.koin.compose.koinInject
 import java.io.File
 import kotlin.math.roundToInt
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 
 @Serializable
@@ -301,7 +303,7 @@ data class VideoListScreen(
         if (sortedVideosWithInfo.isNotEmpty()) {
           TooltipBox(
             positionProvider = TooltipDefaults.rememberTooltipPositionProvider(TooltipAnchorPosition.Above),
-            tooltip = { PlainTooltip { Text("Play recently played or first video") } },
+            tooltip = { PlainTooltip { Text(stringResource(R.string.play_recently_played_or_first)) } },
             state = rememberTooltipState(),
           ) {
             FloatingActionButton(
@@ -328,7 +330,7 @@ data class VideoListScreen(
                 }
               },
             ) {
-              Icon(Icons.Filled.PlayArrow, contentDescription = "Play recently played or first video")
+              Icon(Icons.Filled.PlayArrow, contentDescription = "播放最近播放或第一个视频")
             }
           }
         }
@@ -497,7 +499,7 @@ data class VideoListScreen(
       // Private Space Loading Dialog
       LoadingDialog(
         isOpen = movingToPrivateSpace.value,
-        message = "Moving to private space...",
+        message = "正在移至私密空间…",
       )
 
       // Private Space Completion Dialog
@@ -506,7 +508,7 @@ data class VideoListScreen(
           onDismissRequest = { showPrivateSpaceCompletionDialog.value = false },
           title = {
             Text(
-              text = "Moved to Private Space",
+              text = "已移至私密空间",
               style = MaterialTheme.typography.headlineSmall,
             )
           },
@@ -514,7 +516,7 @@ data class VideoListScreen(
             Text(
               text =
                 "Successfully moved ${privateSpaceMovedCount.intValue} video(s) to private space.\n\n" +
-                  "To access private space, long press on the app name at the top of the main screen.",
+                  "长按主界面顶部的应用名称可进入私密空间。",
               style = MaterialTheme.typography.bodyMedium,
             )
           },
@@ -522,7 +524,7 @@ data class VideoListScreen(
             androidx.compose.material3.Button(
               onClick = { showPrivateSpaceCompletionDialog.value = false },
             ) {
-              Text("Close")
+              Text(stringResource(R.string.close))
             }
           },
         )
@@ -613,8 +615,8 @@ private fun VideoListContent(
       ) {
         EmptyState(
           icon = Icons.Filled.VideoLibrary,
-          title = "No videos in this folder",
-          message = "Videos you add to this folder will appear here",
+          title = "此文件夹中没有视频",
+          message = "添加到此文件夹的视频会显示在这里",
         )
       }
     }
@@ -884,7 +886,7 @@ private fun VideoSortDialog(
   SortDialog(
     isOpen = isOpen,
     onDismiss = onDismiss,
-    title = "Sort & View Options",
+    title = "排序与视图选项",
     sortType = sortType.displayName,
     onSortTypeChange = { typeName ->
       VideoSortType.entries.find { it.displayName == typeName }?.let(onSortTypeChange)
@@ -911,15 +913,15 @@ private fun VideoSortDialog(
       when (type) {
         VideoSortType.Title.displayName -> Pair("A-Z", "Z-A")
         VideoSortType.Duration.displayName -> Pair("Shortest", "Longest")
-        VideoSortType.Date.displayName -> Pair("Oldest", "Newest")
-        VideoSortType.Size.displayName -> Pair("Smallest", "Biggest")
-        else -> Pair("Asc", "Desc")
+        VideoSortType.Date.displayName -> Pair("最早", "最新")
+        VideoSortType.Size.displayName -> Pair("最小", "Biggest")
+        else -> Pair("升序", "降序")
       }
     },
     viewModeSelector = ViewModeSelector(
-      label = "View Mode",
-      firstOptionLabel = "Folder",
-      secondOptionLabel = "Tree",
+      label = "视图模式",
+      firstOptionLabel = "文件夹",
+      secondOptionLabel = "目录树",
       firstOptionIcon = Icons.Filled.ViewModule,
       secondOptionIcon = Icons.Filled.AccountTree,
       isFirstOptionSelected = folderViewMode == FolderViewMode.AlbumView,
@@ -930,9 +932,9 @@ private fun VideoSortDialog(
       },
     ),
     layoutModeSelector = ViewModeSelector(
-      label = "Layout",
-      firstOptionLabel = "List",
-      secondOptionLabel = "Grid",
+      label = "布局",
+      firstOptionLabel = "列表",
+      secondOptionLabel = "网格",
       firstOptionIcon = Icons.AutoMirrored.Filled.ViewList,
       secondOptionIcon = Icons.Filled.GridView,
       isFirstOptionSelected = mediaLayoutMode == MediaLayoutMode.LIST,
@@ -945,37 +947,37 @@ private fun VideoSortDialog(
     visibilityToggles =
       listOf(
         VisibilityToggle(
-          label = "Thumbnails",
+          label = "缩略图",
           checked = showThumbnails,
           onCheckedChange = { browserPreferences.showVideoThumbnails.set(it) },
         ),
         VisibilityToggle(
-          label = "Subtitle Indicator",
+          label = "字幕标识",
           checked = showSubtitleIndicator,
           onCheckedChange = { browserPreferences.showSubtitleIndicator.set(it) },
         ),
         VisibilityToggle(
-          label = "Full Name",
+          label = "全名",
           checked = unlimitedNameLines,
           onCheckedChange = { appearancePreferences.unlimitedNameLines.set(it) },
         ),
         VisibilityToggle(
-          label = "Size",
+          label = "大小",
           checked = showSizeChip,
           onCheckedChange = { browserPreferences.showSizeChip.set(it) },
         ),
         VisibilityToggle(
-          label = "Resolution",
+          label = "分辨率",
           checked = showResolutionChip,
           onCheckedChange = { browserPreferences.showResolutionChip.set(it) },
         ),
         VisibilityToggle(
-          label = "Framerate",
+          label = "帧率",
           checked = showFramerateInResolution,
           onCheckedChange = { browserPreferences.showFramerateInResolution.set(it) },
         ),
         VisibilityToggle(
-          label = "Date",
+          label = "日期",
           checked = showDateChip,
           onCheckedChange = { browserPreferences.showDateChip.set(it) },
         ),

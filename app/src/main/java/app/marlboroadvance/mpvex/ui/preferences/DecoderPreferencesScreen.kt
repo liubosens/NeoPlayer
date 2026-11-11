@@ -339,15 +339,15 @@ object VulkanUtils {
                     PackageManager.FEATURE_VULKAN_HARDWARE_VERSION,
                     0x00403000 // Vulkan 1.3
                 )) {
-                Log.d(TAG, "Vulkan 1.3 supported ✓")
+                Log.d(TAG, "支持 Vulkan 1.3 ✓")
                 return true
             }
 
-            Log.d(TAG, "Vulkan not supported: Vulkan 1.3 not available")
+            Log.d(TAG, "不支持 Vulkan：缺少 Vulkan 1.3")
             return false
 
         } catch (e: Exception) {
-            Log.e(TAG, "Error checking Vulkan support", e)
+            Log.e(TAG, "检查 Vulkan 支持时出错", e)
             return false
         }
     }

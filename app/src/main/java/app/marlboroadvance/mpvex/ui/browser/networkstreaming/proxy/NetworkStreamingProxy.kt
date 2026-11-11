@@ -118,12 +118,12 @@ class NetworkStreamingProxy private constructor() : NanoHTTPD("127.0.0.1", 0) {
     // Extract stream ID from URI (format: /streamId)
     val streamId = uri.removePrefix("/").split("/").firstOrNull()
     if (streamId.isNullOrEmpty()) {
-      return newFixedLengthResponse(Response.Status.NOT_FOUND, MIME_PLAINTEXT, "Stream not found")
+      return newFixedLengthResponse(Response.Status.NOT_FOUND, MIME_PLAINTEXT, "未找到流媒体")
     }
 
     val streamInfo = activeStreams[streamId]
     if (streamInfo == null) {
-      return newFixedLengthResponse(Response.Status.NOT_FOUND, MIME_PLAINTEXT, "Stream not found")
+      return newFixedLengthResponse(Response.Status.NOT_FOUND, MIME_PLAINTEXT, "未找到流媒体")
     }
 
     // Handle range requests for seeking
@@ -180,7 +180,7 @@ class NetworkStreamingProxy private constructor() : NanoHTTPD("127.0.0.1", 0) {
       return newFixedLengthResponse(
         Response.Status.INTERNAL_ERROR,
         MIME_PLAINTEXT,
-        "Failed to open stream",
+        "无法打开流媒体",
       )
     }
 
@@ -214,7 +214,7 @@ class NetworkStreamingProxy private constructor() : NanoHTTPD("127.0.0.1", 0) {
       return newFixedLengthResponse(
         Response.Status.INTERNAL_ERROR,
         MIME_PLAINTEXT,
-        "Failed to open stream",
+        "无法打开流媒体",
       )
     }
 
@@ -297,7 +297,7 @@ class NetworkStreamingProxy private constructor() : NanoHTTPD("127.0.0.1", 0) {
           val pathAfterProtocol = streamInfo.filePath.substring(6) // Remove "smb://"
           val firstSlash = pathAfterProtocol.indexOf('/')
           if (firstSlash == -1) {
-            Log.e(TAG, "Invalid SMB path format")
+            Log.e(TAG, "SMB 路径格式无效")
             return -1L
           }
 
@@ -722,7 +722,7 @@ class NetworkStreamingProxy private constructor() : NanoHTTPD("127.0.0.1", 0) {
           val pathAfterProtocol = streamInfo.filePath.substring(6) // Remove "smb://"
           val firstSlash = pathAfterProtocol.indexOf('/')
           if (firstSlash == -1) {
-            Log.e(TAG, "Invalid SMB path format")
+            Log.e(TAG, "SMB 路径格式无效")
             return null
           }
 

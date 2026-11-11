@@ -52,6 +52,8 @@ import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.Locale
 import java.util.TimeZone
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 // --- Data Models ---
 
@@ -417,7 +419,7 @@ fun UpdateDialog(
         title = {
             Column(horizontalAlignment = Alignment.CenterHorizontally) {
                 Text(
-                    text = if (actionLabel == "Install") "Ready to Install" else "Update Available",
+                    text = if (actionLabel == "Install") "可以安装" else "有可用更新",
                     style = MaterialTheme.typography.titleLarge
                 )
                 Spacer(modifier = Modifier.height(4.dp))
@@ -436,10 +438,10 @@ fun UpdateDialog(
             ) {
                 if (actionLabel != "Install") {
                     // Show version info for update available state
-                    InfoRow(label = "Current Version", value = currentVersion)
-                    InfoRow(label = "Latest Version", value = release.tagName.removePrefix("v"))
-                    InfoRow(label = "Release Date", value = formattedDate)
-                    InfoRow(label = "Size", value = formatFileSize(downloadSize))
+                    InfoRow(label = "当前版本", value = currentVersion)
+                    InfoRow(label = "最新版本", value = release.tagName.removePrefix("v"))
+                    InfoRow(label = "发布日期", value = formattedDate)
+                    InfoRow(label = "大小", value = formatFileSize(downloadSize))
                 }
 
                 if (isDownloading) {
@@ -448,7 +450,7 @@ fun UpdateDialog(
                         modifier = Modifier.fillMaxWidth(),
                         horizontalArrangement = Arrangement.SpaceBetween
                     ) {
-                        Text(text = "Downloading...", style = MaterialTheme.typography.bodySmall)
+                        Text(text = "下载中…", style = MaterialTheme.typography.bodySmall)
                         Text(text = "${progress.toInt()}%", style = MaterialTheme.typography.bodySmall)
                     }
                     Spacer(modifier = Modifier.height(8.dp))
@@ -464,7 +466,7 @@ fun UpdateDialog(
         confirmButton = {
             if (!isDownloading) {
                 Button(onClick = onAction) {
-                    Text(if (actionLabel == "Install") "Install" else "Download")
+                    Text(if (actionLabel == "Install") stringResource(R.string.install) else stringResource(R.string.download))
                 }
             }
         },
@@ -473,11 +475,11 @@ fun UpdateDialog(
                 Row {
                     if (actionLabel != "Install") {
                         TextButton(onClick = onIgnore) {
-                            Text("Ignore")
+                            Text(stringResource(R.string.ignore))
                         }
                     }
                     TextButton(onClick = onDismiss) {
-                        Text("Cancel")
+                        Text(stringResource(R.string.generic_cancel))
                     }
                 }
             }

@@ -195,7 +195,7 @@ val scope = rememberCoroutineScope()
         
         if (isHighRes) {
             Text(
-                text = "Not available for 4K/8K video",
+                text = "不支持 4K/8K 视频",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.error,
                 modifier = Modifier.padding(bottom = 4.dp)
@@ -349,8 +349,7 @@ fun TimePickerDialog(
             horizontalAlignment = Alignment.Start,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text(
-                "Quick Presets",
+            Text(stringResource(R.string.quick_presets),
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.primary,
                 modifier = Modifier.padding(bottom = 8.dp)
@@ -367,7 +366,7 @@ fun TimePickerDialog(
                             onTimeSelect(minutes * 60)
                             onDismissRequest()
                         },
-                        label = { Text("${minutes}m") },
+                        label = { Text(stringResource(R.string.timer_minutes_short, minutes)) },
                         leadingIcon = null,
                     )
                 }

@@ -54,6 +54,7 @@ import kotlin.io.path.createTempFile
 import kotlin.io.path.deleteIfExists
 import kotlin.io.path.outputStream
 import kotlin.io.path.readLines
+import app.marlboroadvance.mpvex.R
 
 @Serializable
 data class ConfigEditorScreen(
@@ -117,7 +118,7 @@ data class ConfigEditorScreen(
             val tree = DocumentFile.fromTreeUri(context, mpvConfStorageLocation.toUri())
             if (tree == null) {
               withContext(Dispatchers.Main) {
-                Toast.makeText(context, "No storage location set", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, context.getString(R.string.toast_no_storage_location), Toast.LENGTH_LONG).show()
               }
               return@launch
             }
@@ -125,7 +126,7 @@ data class ConfigEditorScreen(
             val confFile = existing ?: tree.createFile("text/plain", fileName)?.also { it.renameTo(fileName) }
             val uri = confFile?.uri ?: run {
               withContext(Dispatchers.Main) {
-                Toast.makeText(context, "Failed to create file", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, context.getString(R.string.toast_create_file_failed), Toast.LENGTH_LONG).show()
               }
               return@launch
             }
@@ -137,12 +138,12 @@ data class ConfigEditorScreen(
 
           withContext(Dispatchers.Main) {
             hasUnsavedChanges = false
-            Toast.makeText(context, "$fileName saved", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, context.getString(R.string.toast_file_saved, fileName), Toast.LENGTH_SHORT).show()
             backStack.removeLastOrNull()
           }
         } catch (e: Exception) {
           withContext(Dispatchers.Main) {
-            Toast.makeText(context, "Failed to save: ${e.message}", Toast.LENGTH_LONG).show()
+            Toast.makeText(context, context.getString(R.string.toast_save_failed, e.message), Toast.LENGTH_LONG).show()
           }
         }
       }
@@ -163,7 +164,7 @@ data class ConfigEditorScreen(
             )
             if (hasUnsavedChanges) {
               Text(
-                text  = "Unsaved changes",
+                text  = "有未保存的更改",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.secondary,
               )
@@ -174,7 +175,7 @@ data class ConfigEditorScreen(
           IconButton(onClick = backStack::removeLastOrNull) {
             Icon(
               Icons.AutoMirrored.Default.ArrowBack,
-              contentDescription = "Back",
+              contentDescription = "返回",
               tint = MaterialTheme.colorScheme.secondary,
             )
           }
@@ -194,7 +195,7 @@ data class ConfigEditorScreen(
             ),
             shape = RoundedCornerShape(8.dp),
           ) {
-            Icon(Icons.Default.Check, contentDescription = "Save")
+            Icon(Icons.Default.Check, contentDescription = "保存")
           }
         },
       )

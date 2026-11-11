@@ -346,8 +346,7 @@ class CrashActivity : ComponentActivity() {
           style = MaterialTheme.typography.headlineSmall,
         )
         LogsContainer(exceptionString)
-        Text(
-          "Logcat:",
+        Text(stringResource(R.string.logcat_label),
           style = MaterialTheme.typography.headlineSmall,
         )
         LogsContainer(logcat)

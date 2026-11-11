@@ -44,10 +44,10 @@ export default function ErrorPage({
       className="error-container min-h-screen flex flex-col items-center justify-center bg-background text-foreground p-4 text-center"
     >
       <motion.h2 variants={itemVariants} className="text-4xl font-bold mb-4 text-destructive">
-        Something went wrong!
+        出错了！
       </motion.h2>
       <motion.p variants={itemVariants} className="text-muted-foreground text-lg mb-8 max-w-md">
-        We encountered an unexpected error. Please try again later.
+        遇到了意外错误，请稍后重试。
       </motion.p>
       <motion.div variants={itemVariants}>
         <Button
@@ -55,12 +55,12 @@ export default function ErrorPage({
           className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg shadow-lg hover:shadow-xl transition-all"
         >
           <RefreshCcw className="mr-2 w-5 h-5" />
-          Try again
+          重试
         </Button>
       </motion.div>
       {error.digest && (
         <motion.p variants={itemVariants} className="mt-8 text-xs text-muted-foreground font-mono">
-          Error ID: {error.digest}
+          错误编号：{error.digest}
         </motion.p>
       )}
     </motion.div>

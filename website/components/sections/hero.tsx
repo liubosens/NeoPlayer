@@ -80,7 +80,7 @@ export function HeroSection({
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
               </span>
               <span className="text-sm font-medium text-muted-foreground">
-                Latest Version {version || siteConfig.version}
+                最新版本 {version || siteConfig.version}
               </span>
             </div>
           </div>
@@ -99,8 +99,7 @@ export function HeroSection({
           variants={itemVariants}
           className="text-xl sm:text-2xl text-muted-foreground mb-10 max-w-2xl mx-auto leading-relaxed"
         >
-          An advanced video player for Android built on libmpv. Experience
-          Material3 design, background playback, and picture-in-picture.
+          基于 libmpv 打造的 Android 高级视频播放器。体验 Material3 设计、后台播放与画中画。
         </motion.p>
 
         <motion.div
@@ -118,7 +117,7 @@ export function HeroSection({
             }
           >
             <Play className="w-4 h-4 mr-2 fill-current" />
-            Download Now
+            立即下载
           </Button>
           <Button
             size="lg"
@@ -126,7 +125,7 @@ export function HeroSection({
             className="h-12 px-8 text-base border-foreground/10 bg-foreground/5 hover:bg-foreground/10 text-foreground backdrop-blur-sm rounded-full transition-all duration-300"
             onClick={() => window.open(siteConfig.links.github, "_blank")}
           >
-            View on GitHub
+            在 GitHub 上查看
           </Button>
         </motion.div>
         
@@ -134,7 +133,7 @@ export function HeroSection({
        <motion.img
          variants={itemVariants}
          src="/player.png"
-         alt="MpvEx Player Image"
+         alt="MpvEx 播放器界面"
          className="mt-0 max-w-screen-md w-full mx-auto rounded-lg shadow-lg"
        >
      </motion.img>
@@ -148,31 +147,31 @@ export function HeroSection({
             <span className="text-3xl font-bold text-foreground mb-1">
               Apache 2.0
             </span>
-            <span className="text-sm text-muted-foreground">License</span>
+            <span className="text-sm text-muted-foreground">开源协议</span>
           </div>
           <div className="flex flex-col items-center min-w-[100px]">
             <span className="text-3xl font-bold text-foreground mb-1">
               Libmpv
             </span>
-            <span className="text-sm text-muted-foreground">Powered</span>
+            <span className="text-sm text-muted-foreground">播放内核</span>
           </div>
           <div className="flex flex-col items-center min-w-[100px]">
             <span className="text-3xl font-bold text-foreground mb-1">M3</span>
             <span className="text-sm text-muted-foreground">
-              Material Design
+              Material 设计
             </span>
           </div>
           <div className="flex flex-col items-center min-w-[100px]">
             <span className="text-3xl font-bold text-foreground mb-1">
               {stars ? formatCompactNumber(stars) : "100+"}
             </span>
-            <span className="text-sm text-muted-foreground">GitHub Stars</span>
+            <span className="text-sm text-muted-foreground">GitHub 星标</span>
           </div>
           <div className="flex flex-col items-center min-w-[100px]">
             <span className="text-3xl font-bold text-foreground mb-1">
               {contributors ? formatCompactNumber(contributors) : "10+"}
             </span>
-            <span className="text-sm text-muted-foreground">Contributors</span>
+            <span className="text-sm text-muted-foreground">贡献者</span>
           </div>
         </motion.div>
       </motion.div>

@@ -35,6 +35,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import app.marlboroadvance.mpvex.presentation.components.PlayerSheet
 import app.marlboroadvance.mpvex.ui.theme.spacing
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 data class AspectRatio(
   val label: String,
@@ -73,7 +75,7 @@ fun AspectRatioSheet(
           .padding(vertical = MaterialTheme.spacing.medium),
     ) {
       Text(
-        text = "Aspect Ratio",
+        text = "画面比例",
         style = MaterialTheme.typography.headlineSmall,
         modifier =
           Modifier
@@ -83,7 +85,7 @@ fun AspectRatioSheet(
 
       // Preset ratios
       Text(
-        text = "Presets",
+        text = "预设",
         style = MaterialTheme.typography.titleSmall,
         modifier =
           Modifier
@@ -109,7 +111,7 @@ fun AspectRatioSheet(
       // Custom ratios
       if (customRatios.isNotEmpty()) {
         Text(
-          text = "Custom",
+          text = "自定义",
           style = MaterialTheme.typography.titleSmall,
           modifier =
             Modifier
@@ -183,7 +185,7 @@ private fun AddCustomRatioRow(
           widthText = it.filter { char -> char.isDigit() || char == '.' }
           errorMessage = null
         },
-        label = { Text("Width") },
+        label = { Text(stringResource(R.string.width)) },
         isError = errorMessage != null,
         keyboardOptions =
           KeyboardOptions(
@@ -209,7 +211,7 @@ private fun AddCustomRatioRow(
           heightText = it.filter { char -> char.isDigit() || char == '.' }
           errorMessage = null
         },
-        label = { Text("Height") },
+        label = { Text(stringResource(R.string.height)) },
         isError = errorMessage != null,
         keyboardOptions =
           KeyboardOptions(

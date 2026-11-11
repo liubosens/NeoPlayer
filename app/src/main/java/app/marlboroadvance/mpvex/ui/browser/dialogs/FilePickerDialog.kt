@@ -51,6 +51,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.DialogProperties
 import app.marlboroadvance.mpvex.utils.storage.StorageVolumeUtils
 import java.io.File
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -182,12 +184,12 @@ fun FilePickerDialog(
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
                   Column(modifier = Modifier.fillMaxWidth()) {
                       Text(
-                        text = "Select Subtitle",
+                        text = "选择字幕",
                         style = MaterialTheme.typography.headlineSmall,
                         fontWeight = FontWeight.Bold,
                       )
                       Text(
-                        text = selectedPath ?: "Select a storage location",
+                        text = selectedPath ?: "选择存储位置",
                         style = MaterialTheme.typography.bodyMedium,
                         fontWeight = FontWeight.Medium,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -220,12 +222,12 @@ fun FilePickerDialog(
                   ) {
                       Column(modifier = Modifier.weight(1f)) {
                           Text(
-                            text = "Select Subtitle",
+                            text = "选择字幕",
                             style = MaterialTheme.typography.headlineMedium,
                             fontWeight = FontWeight.Bold,
                           )
                           Text(
-                            text = selectedPath ?: "Select a storage location",
+                            text = selectedPath ?: "选择存储位置",
                             style = MaterialTheme.typography.bodyMedium,
                             fontWeight = FontWeight.Medium,
                             color = MaterialTheme.colorScheme.onSurfaceVariant,
@@ -276,7 +278,7 @@ fun FilePickerDialog(
                     }
                     if (storageVolumes.isEmpty()) {
                       item {
-                         Text("No storage devices found", modifier = Modifier.padding(16.dp))
+                         Text(stringResource(R.string.no_storage_devices_found), modifier = Modifier.padding(16.dp))
                       }
                     }
                   } else {
@@ -296,7 +298,7 @@ fun FilePickerDialog(
                     }
                     if (folders.isEmpty() && files.isEmpty()) {
                       item {
-                         Text("No folders or supported files", modifier = Modifier.padding(16.dp))
+                         Text(stringResource(R.string.no_folders_or_supported_files), modifier = Modifier.padding(16.dp))
                       }
                     }
                   }
@@ -313,7 +315,7 @@ fun FilePickerDialog(
                     shape = MaterialTheme.shapes.extraLarge,
                     // Reduced padding for the button itself if needed, or rely on Row padding
                   ) {
-                    Text("Cancel", fontWeight = FontWeight.Medium)
+                    Text(stringResource(R.string.generic_cancel), fontWeight = FontWeight.Medium)
                   }
               }
           }

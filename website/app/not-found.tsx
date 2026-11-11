@@ -49,13 +49,13 @@ export default function NotFound() {
         404
       </motion.div>
       <motion.h1 variants={itemVariants} className="error-title text-4xl font-bold mb-4">
-        Page Not Found
+        页面未找到
       </motion.h1>
       <motion.p
         variants={itemVariants}
         className="error-desc text-muted-foreground text-lg mb-8 max-w-md"
       >
-        Oops! The page you're looking for doesn't exist or has been moved.
+        抱歉，你要找的页面不存在或已被移动。
       </motion.p>
       <motion.div variants={itemVariants}>
         <Button
@@ -64,7 +64,7 @@ export default function NotFound() {
         >
           <Link href="/">
             <Home className="mr-2 w-5 h-5" />
-            Go Back Home
+            返回首页
           </Link>
         </Button>
       </motion.div>

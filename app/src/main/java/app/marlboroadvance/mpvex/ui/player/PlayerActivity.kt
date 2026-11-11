@@ -394,7 +394,7 @@ class PlayerActivity :
     // Extract fileName early so it's available when video loads
     fileName = getFileName(intent)
     if (fileName.isBlank()) {
-      fileName = intent.data?.lastPathSegment ?: "Unknown Video"
+      fileName = intent.data?.lastPathSegment ?: "未知视频"
     }
     mediaIdentifier = getMediaIdentifier(intent, fileName)
 
@@ -1294,7 +1294,7 @@ class PlayerActivity :
     }
 
     // For file:// and content:// URIs - preserve # characters as they're part of the filename
-    val lastSegment = uri.lastPathSegment?.substringAfterLast("/") ?: uri.path ?: "Unknown Video"
+    val lastSegment = uri.lastPathSegment?.substringAfterLast("/") ?: uri.path ?: "未知视频"
     
     // For local files, only decode URL encoding but preserve # characters
     return try {
@@ -1653,7 +1653,7 @@ class PlayerActivity :
       fileName = getFileName(intent)
       // Ensure fileName is not blank - use a fallback if necessary
       if (fileName.isBlank()) {
-        fileName = intent.data?.lastPathSegment ?: "Unknown Video"
+        fileName = intent.data?.lastPathSegment ?: "未知视频"
       }
       mediaIdentifier = getMediaIdentifier(intent, fileName)
     } else if (mediaIdentifier.isBlank()) {
@@ -2321,7 +2321,7 @@ class PlayerActivity :
     // Extract the new fileName before loading the file
     fileName = getFileName(intent)
     if (fileName.isBlank()) {
-      fileName = intent.data?.lastPathSegment ?: "Unknown Video"
+      fileName = intent.data?.lastPathSegment ?: "未知视频"
     }
     mediaIdentifier = getMediaIdentifier(intent, fileName)
 

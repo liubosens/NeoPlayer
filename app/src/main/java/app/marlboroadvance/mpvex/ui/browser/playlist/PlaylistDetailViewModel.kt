@@ -40,7 +40,7 @@ class PlaylistDetailViewModel(
   private val _videoItems = MutableStateFlow<List<PlaylistVideoItem>>(emptyList())
   val videoItems: StateFlow<List<PlaylistVideoItem>> = _videoItems.asStateFlow()
 
-  // Start as loading to avoid briefly showing "No videos in playlist" before the first DB emission arrives,
+  // Start as loading to avoid briefly showing "播放列表中没有视频" before the first DB emission arrives,
   // especially noticeable for very large playlists.
   private val _isLoading = MutableStateFlow(true)
   val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()

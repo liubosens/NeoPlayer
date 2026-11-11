@@ -130,7 +130,7 @@ object PlayerControlsPreferencesScreen : Screen {
         ) {
           // Landscape Controls Section
           item {
-            PreferenceSectionHeader(title = "Landscape Controls")
+            PreferenceSectionHeader(title = "横屏控件")
           }
           
           item {
@@ -167,7 +167,7 @@ object PlayerControlsPreferencesScreen : Screen {
           
           // Portrait Controls Section
           item {
-            PreferenceSectionHeader(title = "Portrait Controls")
+            PreferenceSectionHeader(title = "竖屏控件")
           }
 
           item {
@@ -186,7 +186,7 @@ object PlayerControlsPreferencesScreen : Screen {
           
           // Seekbar Section
           item {
-            PreferenceSectionHeader(title = "Seekbar Style")
+            PreferenceSectionHeader(title = "进度条样式")
           }
 
           item {
@@ -219,7 +219,7 @@ object PlayerControlsPreferencesScreen : Screen {
           
           // Appearance Section
           item {
-            PreferenceSectionHeader(title = "Appearance")
+            PreferenceSectionHeader(title = "外观")
           }
           
           item {
@@ -291,13 +291,13 @@ object PlayerControlsPreferencesScreen : Screen {
                       .verticalScroll(rememberScrollState()),
                   ) {
                     Text(
-                      text = "Enter custom hide time in milliseconds",
+                      text = "输入自定义隐藏时间（毫秒）",
                       modifier = Modifier.padding(bottom = 8.dp),
                     )
                     OutlinedTextField(
                       value = customTimeValue,
                       onValueChange = { customTimeValue = it },
-                      label = { Text("Milliseconds") },
+                      label = { Text(stringResource(R.string.milliseconds)) },
                       keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                       modifier = Modifier.fillMaxWidth(),
                       singleLine = true,
@@ -377,8 +377,7 @@ object PlayerControlsPreferencesScreen : Screen {
       verticalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterVertically),
     ) {
       if (buttons.isEmpty()) {
-        Text(
-          "None", // TODO: strings
+        Text(stringResource(R.string.pref_gesture_double_tap_none), // TODO: strings
           style = MaterialTheme.typography.bodyMedium,
           color = MaterialTheme.colorScheme.outline,
         )

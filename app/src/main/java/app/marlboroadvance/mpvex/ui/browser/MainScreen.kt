@@ -47,6 +47,8 @@ import app.marlboroadvance.mpvex.ui.browser.recentlyplayed.RecentlyPlayedScreen
 import app.marlboroadvance.mpvex.ui.browser.selection.SelectionManager
 import kotlinx.coroutines.delay
 import kotlinx.serialization.Serializable
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @Serializable
 object MainScreen : Screen {
@@ -187,26 +189,26 @@ object MainScreen : Screen {
               )
           ) {
             NavigationBarItem(
-              icon = { Icon(Icons.Filled.Home, contentDescription = "Home") },
-              label = { Text("Home") },
+              icon = { Icon(Icons.Filled.Home, contentDescription = "首页") },
+              label = { Text(stringResource(R.string.home)) },
               selected = selectedTab == 0,
               onClick = { selectedTab = 0 }
             )
             NavigationBarItem(
-              icon = { Icon(Icons.Filled.History, contentDescription = "Recents") },
-              label = { Text("Recents") },
+              icon = { Icon(Icons.Filled.History, contentDescription = "最近") },
+              label = { Text(stringResource(R.string.recents)) },
               selected = selectedTab == 1,
               onClick = { selectedTab = 1 }
             )
             NavigationBarItem(
-              icon = { Icon(Icons.AutoMirrored.Filled.PlaylistPlay, contentDescription = "Playlists") },
-              label = { Text("Playlists") },
+              icon = { Icon(Icons.AutoMirrored.Filled.PlaylistPlay, contentDescription = "播放列表") },
+              label = { Text(stringResource(R.string.playlists)) },
               selected = selectedTab == 2,
               onClick = { selectedTab = 2 }
             )
             NavigationBarItem(
-              icon = { Icon(Icons.Filled.Language, contentDescription = "Network") },
-              label = { Text("Network") },
+              icon = { Icon(Icons.Filled.Language, contentDescription = "网络") },
+              label = { Text(stringResource(R.string.network)) },
               selected = selectedTab == 3,
               onClick = { selectedTab = 3 }
             )

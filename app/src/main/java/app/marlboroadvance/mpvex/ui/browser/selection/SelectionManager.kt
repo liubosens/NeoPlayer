@@ -16,6 +16,7 @@ import app.marlboroadvance.mpvex.ui.player.PlayerActivity
 import app.marlboroadvance.mpvex.utils.media.MediaUtils
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import app.marlboroadvance.mpvex.R
 
 /**
  * Manager for handling item selection and operations in browser screens
@@ -91,12 +92,12 @@ class SelectionManager<T, ID>(
       runCatching {
         val (deleted, failed) = onDeleteItems(selected, deleteFiles)
         if (deleted > 0) {
-          Toast.makeText(context, "Deleted successfully", Toast.LENGTH_SHORT).show()
+          Toast.makeText(context, context.getString(R.string.toast_deleted_successfully), Toast.LENGTH_SHORT).show()
         } else if (failed > 0) {
-          Toast.makeText(context, "Failed to delete", Toast.LENGTH_SHORT).show()
+          Toast.makeText(context, context.getString(R.string.toast_delete_failed), Toast.LENGTH_SHORT).show()
         }
       }.onFailure {
-        Toast.makeText(context, "Failed to delete: ${it.message}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.toast_delete_failed_reason, it.message), Toast.LENGTH_SHORT).show()
       }
       clear()
       onOperationComplete()
@@ -115,12 +116,12 @@ class SelectionManager<T, ID>(
       runCatching {
         val result = onRenameItem(item, newName)
         result.onSuccess {
-          Toast.makeText(context, "Renamed successfully", Toast.LENGTH_SHORT).show()
+          Toast.makeText(context, context.getString(R.string.toast_renamed_successfully), Toast.LENGTH_SHORT).show()
         }.onFailure { error ->
-          Toast.makeText(context, "Failed to rename: ${error.message}", Toast.LENGTH_SHORT).show()
+          Toast.makeText(context, context.getString(R.string.toast_rename_failed, error.message), Toast.LENGTH_SHORT).show()
         }
       }.onFailure {
-        Toast.makeText(context, "Failed to rename: ${it.message}", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, context.getString(R.string.toast_rename_failed, it.message), Toast.LENGTH_SHORT).show()
       }
       clear()
       onOperationComplete()

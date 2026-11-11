@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
+    locale: "zh_CN",
     url: siteConfig.url,
     title: siteConfig.name,
     description: siteConfig.description,
@@ -65,7 +65,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="zh-CN" suppressHydrationWarning>
       <body
         className={`${inter.className} bg-background text-foreground antialiased`}
         suppressHydrationWarning

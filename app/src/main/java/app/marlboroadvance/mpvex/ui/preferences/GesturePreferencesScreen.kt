@@ -140,13 +140,13 @@ object GesturePreferencesScreen : Screen {
               text = {
                 Column {
                   Text(
-                    text = "Enter custom seek duration in seconds (1-120)",
+                    text = "输入自定义快进时长（秒，1-120）",
                     modifier = Modifier.padding(bottom = 8.dp),
                   )
                   OutlinedTextField(
                     value = customSeekValue,
                     onValueChange = { customSeekValue = it },
-                    label = { Text("Seconds") },
+                    label = { Text(stringResource(R.string.seconds)) },
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                     modifier = Modifier.fillMaxWidth(),
                     singleLine = true,
@@ -182,7 +182,7 @@ object GesturePreferencesScreen : Screen {
             onValueChange = { preferences.doubleTapSeekAreaWidth.set(it) },
             values = seekAreaValues,
             valueToText = { AnnotatedString("${it}%") },
-            title = { Text(text = "Double Tap Seek Area Width") },
+            title = { Text(text = "双击快进区域宽度") },
             summary = {
               Text(
                 text = "Current: ${doubleTapSeekAreaWidth}%",
@@ -391,7 +391,7 @@ object GesturePreferencesScreen : Screen {
             }
           }
 
-          // View Section removed - "Tap thumbnail to select" moved to Appearance Preferences
+          // View Section removed - "点击缩略图进入选择模式" moved to Appearance Preferences
         }
       }
     }

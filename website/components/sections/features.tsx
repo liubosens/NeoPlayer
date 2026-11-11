@@ -46,12 +46,11 @@ export function FeaturesSection() {
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
             <span className="bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/80 to-foreground/40">
-              Powerful Features
+              强大功能
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Everything you need for an exceptional video watching experience,
-            built on the solid foundation of libmpv.
+            基于 libmpv 的坚实基础，为你带来出色观影体验所需的一切。
           </p>
         </div>
 

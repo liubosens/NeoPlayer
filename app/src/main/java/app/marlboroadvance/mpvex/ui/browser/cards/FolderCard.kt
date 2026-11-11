@@ -123,7 +123,7 @@ fun FolderCard(
         ) {
           Icon(
             customIcon ?: Icons.Filled.Folder,
-            contentDescription = "Folder",
+            contentDescription = "文件夹",
             modifier = Modifier.size(56.dp),
             tint = MaterialTheme.colorScheme.secondary,
           )
@@ -210,7 +210,7 @@ fun FolderCard(
         ) {
           Icon(
             customIcon ?: Icons.Filled.Folder,
-            contentDescription = "Folder",
+            contentDescription = "文件夹",
             modifier = Modifier.size(48.dp),
             tint = MaterialTheme.colorScheme.secondary,
           )

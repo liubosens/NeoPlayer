@@ -6,32 +6,32 @@ import Image from "next/image";
 const screenshots = [
   {
     id: 1,
-    title: "File Explorer",
+    title: "文件浏览",
     image: "/IMG-20251120-WA0004.jpg",
   },
   {
     id: 2,
-    title: "Video Player",
+    title: "视频播放",
     image: "/IMG-20251120-WA0002.jpg",
   },
   {
     id: 3,
-    title: "Settings",
+    title: "设置",
     image: "/IMG-20251120-WA0003.jpg",
   },
   {
     id: 4,
-    title: "Playback",
+    title: "播放界面",
     image: "/IMG-20251120-WA0005.jpg",
   },
   {
     id: 5,
-    title: "Picture-in-Picture",
+    title: "画中画",
     image: "/IMG-20251120-WA0006.jpg",
   },
   {
     id: 6,
-    title: "Media Controls",
+    title: "媒体控制",
     image: "/IMG-20251120-WA0008.jpg",
   },
 ];
@@ -49,11 +49,11 @@ export function ScreenshotsSection() {
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
             <span className="bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/80 to-foreground/50">
-              Screenshots
+              应用截图
             </span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Modern Material3 design that adapts to your device.
+            现代 Material3 设计，自适应你的设备。
           </p>
         </div>
 

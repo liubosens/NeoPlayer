@@ -518,4 +518,80 @@
   <string name="playlist_refresh_success">Playlist refreshed successfully</string>
   <string name="playlist_refresh_error">Failed to refresh playlist: %s</string>
   <string name="playlist_m3u_badge">M3U</string>
+
+  <!-- 汉化补充：界面与提示文案 -->
+  <string name="dialog_connecting">Connecting…</string>
+  <string name="create_new_folder">Create New Folder</string>
+  <string name="subtitle_sources">Subtitle Sources</string>
+  <string name="subtitle_hearing_impaired_title">Hearing-impaired friendly</string>
+  <string name="subtitle_hearing_impaired_summary">Only show subtitles optimized for hearing impaired</string>
+  <string name="subtitle_preferred_formats">Preferred Formats</string>
+  <string name="subtitle_preferred_encodings">Preferred Encodings</string>
+  <string name="keep_screen_on_when_paused">Keep screen on when paused</string>
+  <string name="tap_to_edit_configuration">Tap to edit configuration</string>
+  <string name="quick_presets">Quick Presets</string>
+  <string name="logcat_label">Logcat:</string>
+  <string name="season_number">Season %1$s</string>
+  <string name="episode_number">Ep %1$s</string>
+  <string name="fps_value">%1$s FPS</string>
+  <string name="custom_skip_summary">%1$s (%2$s s)</string>
+  <string name="toast_copied_to_clipboard">Copied to clipboard</string>
+  <string name="toast_share_failed">Failed to share: %1$s</string>
+  <string name="toast_generic_error">Error: %1$s</string>
+  <string name="toast_export_failed">Export failed: %1$s</string>
+  <string name="toast_import_failed">Import failed: %1$s</string>
+  <string name="toast_mpv_directory_ready">MPV directory ready ✓</string>
+  <string name="toast_thumbnail_cache_cleared">Thumbnail cache cleared</string>
+  <string name="toast_clear_failed">Failed to clear: %1$s</string>
+  <string name="toast_no_storage_location">No storage location set</string>
+  <string name="toast_create_file_failed">Failed to create file</string>
+  <string name="toast_file_saved">%1$s saved</string>
+  <string name="toast_save_failed">Failed to save: %1$s</string>
+  <string name="toast_already_latest_version">Already using latest version</string>
+  <string name="toast_playlist_refresh_failed">Failed to refresh: %1$s</string>
+  <string name="toast_url_copied">URL copied to clipboard</string>
+  <string name="toast_playlist_created">Playlist created successfully</string>
+  <string name="toast_playlist_create_failed">Failed to create playlist: %1$s</string>
+  <string name="toast_deleted_successfully">Deleted successfully</string>
+  <string name="toast_delete_failed">Failed to delete</string>
+  <string name="toast_delete_failed_reason">Failed to delete: %1$s</string>
+  <string name="toast_renamed_successfully">Renamed successfully</string>
+  <string name="toast_rename_failed">Failed to rename: %1$s</string>
+  <string name="toast_screenshot_failed">Failed to create screenshot</string>
+  <string name="toast_snapshot_save_failed">Failed to save snapshot: %1$s</string>
+
+  <!-- 汉化补充：动态界面文案 -->
+  <string name="export_stats_summary">Successfully exported %1$s items!\n\n</string>
+  <string name="import_stats_detail">Successfully imported: %1$s\nFailed: %2$s\nVersion: %3$s\n\nPlease restart the app for all changes to take effect.</string>
+  <string name="swipe_sensitivity_summary">Current: %1$s/100 (%2$s)</string>
+  <string name="swipe_sensitivity_low">Low</string>
+  <string name="swipe_sensitivity_medium">Medium</string>
+  <string name="swipe_sensitivity_high">High</string>
+  <string name="timer_minutes_short">%1$s min</string>
+  <string name="expandable_card_preview_content">Expanded content</string>
+
+  <!-- 播放器按钮标签 -->
+  <string name="btn_label_back">Back Arrow</string>
+  <string name="btn_label_title">Video Title</string>
+  <string name="btn_label_bookmarks">Chapters / Bookmarks</string>
+  <string name="btn_label_speed">Playback Speed</string>
+  <string name="btn_label_decoder">Decoder</string>
+  <string name="btn_label_rotation">Screen Rotation</string>
+  <string name="btn_label_frame_nav">Frame Navigation</string>
+  <string name="btn_label_zoom">Video Zoom</string>
+  <string name="btn_label_pip">Picture-in-Picture</string>
+  <string name="btn_label_aspect">Aspect Ratio</string>
+  <string name="btn_label_lock">Lock Controls</string>
+  <string name="btn_label_audio">Audio Track</string>
+  <string name="btn_label_subtitles">Subtitles</string>
+  <string name="btn_label_more">More Options</string>
+  <string name="btn_label_chapter">Current Chapter</string>
+  <string name="btn_label_repeat_mode">Repeat Mode</string>
+  <string name="btn_label_shuffle">Shuffle</string>
+  <string name="btn_label_mirror">Horizontal Flip</string>
+  <string name="btn_label_vertical_flip">Vertical Flip</string>
+  <string name="btn_label_ab_loop">A-B Loop</string>
+  <string name="btn_label_custom_skip">Custom Skip</string>
+  <string name="btn_label_background_playback">Background Playback</string>
+  <string name="btn_label_none">None</string>
 </resources>

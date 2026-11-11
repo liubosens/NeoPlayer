@@ -85,7 +85,7 @@ fun CurrentChapter(
           SizeTransform(clip = false),
         )
       },
-      label = "Chapter",
+      label = "章节",
     ) { currentChapter ->
       Row(
         verticalAlignment = Alignment.CenterVertically,

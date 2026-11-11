@@ -49,7 +49,7 @@ class FtpClient(private val connection: NetworkConnection) : NetworkClient {
 
         if (!success) {
           client.disconnect()
-          return@withContext Result.failure(Exception("Login failed"))
+          return@withContext Result.failure(Exception("登录失败"))
         }
 
         // Set binary mode for file transfers
@@ -106,7 +106,7 @@ class FtpClient(private val connection: NetworkConnection) : NetworkClient {
   override suspend fun listFiles(path: String): Result<List<NetworkFile>> =
     withContext(Dispatchers.IO) {
       try {
-        val client = ftpClient ?: return@withContext Result.failure(Exception("Not connected"))
+        val client = ftpClient ?: return@withContext Result.failure(Exception("未连接"))
 
         // Check if connection is still alive
         if (!client.isConnected) {
@@ -160,14 +160,14 @@ class FtpClient(private val connection: NetworkConnection) : NetworkClient {
   suspend fun getFileSize(path: String): Result<Long> =
     withContext(Dispatchers.IO) {
       try {
-        val client = ftpClient ?: return@withContext Result.failure(Exception("Not connected"))
+        val client = ftpClient ?: return@withContext Result.failure(Exception("未连接"))
 
         // Try to get file info
         val files = client.listFiles(path)
         if (files.isNotEmpty() && !files[0].isDirectory) {
           Result.success(files[0].size)
         } else {
-          Result.failure(Exception("File not found or is a directory"))
+          Result.failure(Exception("文件不存在或该项是目录"))
         }
       } catch (e: Exception) {
         Result.failure(e)
@@ -209,7 +209,7 @@ class FtpClient(private val connection: NetworkConnection) : NetworkClient {
 
         if (!success) {
           streamClient.disconnect()
-          return@withContext Result.failure(Exception("Login failed"))
+          return@withContext Result.failure(Exception("登录失败"))
         }
 
         // Set binary mode and passive mode

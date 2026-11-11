@@ -27,6 +27,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import app.marlboroadvance.mpvex.utils.media.CopyPasteOps
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -77,14 +79,14 @@ fun FileOperationProgressDialog(
           }
           progress.isComplete -> {
             StatusCard(
-              message = "Operation completed successfully!",
+              message = "操作已成功完成！",
               containerColor = MaterialTheme.colorScheme.primaryContainer,
               contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
             )
           }
           progress.isCancelled -> {
             StatusCard(
-              message = "Operation cancelled",
+              message = "操作已取消",
               containerColor = MaterialTheme.colorScheme.secondaryContainer,
               contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
             )
@@ -114,13 +116,13 @@ fun FileOperationProgressDialog(
 
             // Current File Progress
             ProgressSection(
-              label = "Current file",
+              label = "当前文件",
               progress = progress.currentFileProgress,
             )
 
             // Overall Progress
             ProgressSection(
-              label = "Overall progress",
+              label = "总进度",
               progress = progress.overallProgress,
             )
 
@@ -141,11 +143,11 @@ fun FileOperationProgressDialog(
         if (isOperationComplete) {
           Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
             SummaryRow(
-              label = "Files processed",
+              label = "已处理文件",
               value = "${progress.currentFileIndex} / ${progress.totalFiles}",
             )
             SummaryRow(
-              label = "Total size",
+              label = "总大小",
               value = CopyPasteOps.formatBytes(progress.totalBytes),
             )
           }
@@ -162,7 +164,7 @@ fun FileOperationProgressDialog(
             ),
           shape = MaterialTheme.shapes.extraLarge,
         ) {
-          Text("Done", fontWeight = FontWeight.Bold)
+          Text(stringResource(R.string.done), fontWeight = FontWeight.Bold)
         }
       } else {
         TextButton(
@@ -171,10 +173,10 @@ fun FileOperationProgressDialog(
         ) {
           Icon(
             imageVector = Icons.Default.Cancel,
-            contentDescription = "Cancel",
+            contentDescription = "取消",
             modifier = Modifier.padding(end = 4.dp),
           )
-          Text("Cancel", fontWeight = FontWeight.Medium)
+          Text(stringResource(R.string.generic_cancel), fontWeight = FontWeight.Medium)
         }
       }
     },

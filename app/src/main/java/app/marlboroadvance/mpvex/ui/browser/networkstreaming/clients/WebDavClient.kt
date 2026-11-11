@@ -74,7 +74,7 @@ class WebDavClient(private val connection: NetworkConnection) : NetworkClient {
   override suspend fun listFiles(path: String): Result<List<NetworkFile>> =
     withContext(Dispatchers.IO) {
       try {
-        val client = sardine ?: return@withContext Result.failure(Exception("Not connected"))
+        val client = sardine ?: return@withContext Result.failure(Exception("未连接"))
 
         val url = buildUrl(path)
         val resources = client.list(url)
@@ -115,7 +115,7 @@ class WebDavClient(private val connection: NetworkConnection) : NetworkClient {
   suspend fun getFileSize(path: String): Result<Long> =
     withContext(Dispatchers.IO) {
       try {
-        val client = sardine ?: return@withContext Result.failure(Exception("Not connected"))
+        val client = sardine ?: return@withContext Result.failure(Exception("未连接"))
 
         val url = buildUrl(path)
         
@@ -125,7 +125,7 @@ class WebDavClient(private val connection: NetworkConnection) : NetworkClient {
           val size = resources[0].contentLength ?: -1L
           Result.success(size)
         } else {
-          Result.failure(Exception("File not found or is a directory"))
+          Result.failure(Exception("文件不存在或该项是目录"))
         }
       } catch (e: Exception) {
         Result.failure(e)

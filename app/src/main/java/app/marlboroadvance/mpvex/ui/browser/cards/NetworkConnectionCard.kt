@@ -28,6 +28,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.marlboroadvance.mpvex.domain.network.NetworkConnection
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @Composable
 fun NetworkConnectionCard(
@@ -78,14 +80,14 @@ fun NetworkConnectionCard(
           IconButton(onClick = { onEdit(connection) }) {
             Icon(
               Icons.Filled.Edit,
-              contentDescription = "Edit",
+              contentDescription = "编辑",
               tint = MaterialTheme.colorScheme.onSurfaceVariant,
             )
           }
           IconButton(onClick = { onDelete(connection) }) {
             Icon(
               Icons.Filled.Delete,
-              contentDescription = "Delete",
+              contentDescription = "删除",
               tint = MaterialTheme.colorScheme.error,
             )
           }
@@ -135,7 +137,7 @@ fun NetworkConnectionCard(
           },
         )
         Text(
-          text = "Connect automatically on app launch",
+          text = "应用启动时自动连接",
           style = MaterialTheme.typography.bodySmall,
           color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
@@ -163,8 +165,7 @@ fun NetworkConnectionCard(
                   strokeWidth = 2.dp,
                   color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
                 )
-                Text(
-                  "Connecting",
+                Text(stringResource(R.string.dialog_connecting),
                   color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.38f),
                 )
               }
@@ -187,7 +188,7 @@ fun NetworkConnectionCard(
                   contentDescription = null,
                   modifier = Modifier.padding(end = 8.dp),
                 )
-                Text("Browse")
+                Text(stringResource(R.string.browse))
               }
 
               FilledTonalButton(
@@ -202,7 +203,7 @@ fun NetworkConnectionCard(
                   contentDescription = null,
                   modifier = Modifier.padding(end = 8.dp),
                 )
-                Text("Disconnect")
+                Text(stringResource(R.string.disconnect))
               }
             }
           }
@@ -220,7 +221,7 @@ fun NetworkConnectionCard(
                 contentDescription = null,
                 modifier = Modifier.padding(end = 8.dp),
               )
-              Text("Connect")
+              Text(stringResource(R.string.connect))
             }
           }
         }

@@ -38,6 +38,8 @@ import androidx.core.net.toUri
 import app.marlboroadvance.mpvex.utils.history.RecentlyPlayedOps
 import app.marlboroadvance.mpvex.utils.media.MediaUtils
 import kotlinx.coroutines.launch
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -100,7 +102,7 @@ fun PlayLinkSheet(
     ) {
       // Title
       Text(
-        text = "Play Link",
+        text = "播放链接",
         style = MaterialTheme.typography.headlineSmall,
         fontWeight = FontWeight.Medium,
         color = MaterialTheme.colorScheme.onSurface,
@@ -117,7 +119,7 @@ fun PlayLinkSheet(
             isLinkInputUrlValid = newValue.isBlank() || MediaUtils.isURLValid(newValue)
           },
           modifier = Modifier.fillMaxWidth(),
-          label = { Text("Enter URL") },
+          label = { Text(stringResource(R.string.enter_url)) },
           placeholder = { Text("https://example.com/video.mp4") },
           singleLine = true,
           isError = linkInputUrl.isNotBlank() && !isLinkInputUrlValid,
@@ -130,7 +132,7 @@ fun PlayLinkSheet(
 
         if (linkInputUrl.isNotBlank() && !isLinkInputUrlValid) {
           Text(
-            text = "Invalid URL protocol",
+            text = "网址协议无效",
             color = MaterialTheme.colorScheme.error,
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Medium,
@@ -145,7 +147,7 @@ fun PlayLinkSheet(
       ) {
         TextButton(onClick = handleDismiss) {
           Text(
-            text = "Cancel",
+            text = "取消",
             fontWeight = FontWeight.Medium,
           )
         }
@@ -159,7 +161,7 @@ fun PlayLinkSheet(
             ),
         ) {
           Text(
-            text = "Play",
+            text = "播放",
             fontWeight = FontWeight.SemiBold,
           )
         }
@@ -175,13 +177,13 @@ private fun ValidationIcon(isValid: Boolean) {
   if (isValid) {
     Icon(
       Icons.Filled.CheckCircle,
-      contentDescription = "Valid URL",
+      contentDescription = "网址有效",
       tint = MaterialTheme.colorScheme.primary,
     )
   } else {
     Icon(
       Icons.Filled.Info,
-      contentDescription = "Invalid URL",
+      contentDescription = "网址无效",
       tint = MaterialTheme.colorScheme.error,
     )
   }

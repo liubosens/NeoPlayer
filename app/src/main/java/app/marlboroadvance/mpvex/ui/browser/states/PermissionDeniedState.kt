@@ -131,7 +131,7 @@ fun PermissionDeniedState(
 
         // Title
         Text(
-          text = "Storage Access Required",
+          text = "需要存储访问权限",
           style = MaterialTheme.typography.headlineMedium,
           fontWeight = FontWeight.Bold,
           textAlign = TextAlign.Center,
@@ -203,7 +203,7 @@ fun PermissionDeniedState(
           shape = RoundedCornerShape(16.dp),
         ) {
           Text(
-            text = "ALLOW ACCESS",
+            text = "允许访问",
             style = MaterialTheme.typography.titleMedium,
             fontWeight = FontWeight.SemiBold,
           )
@@ -222,7 +222,7 @@ fun PermissionDeniedState(
           )
           Spacer(modifier = Modifier.width(6.dp))
           Text(
-            text = "Why do I see this?",
+            text = "为什么会看到这个？",
             style = MaterialTheme.typography.bodyMedium,
             fontWeight = FontWeight.Medium,
           )
@@ -249,7 +249,7 @@ fun PermissionDeniedState(
       },
       title = {
         Text(
-          text = "Why this permission is needed",
+          text = "为什么需要此权限",
           style = MaterialTheme.typography.headlineSmall,
           fontWeight = FontWeight.Bold,
         )

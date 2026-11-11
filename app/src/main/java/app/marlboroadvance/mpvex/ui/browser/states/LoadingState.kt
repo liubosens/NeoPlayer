@@ -36,7 +36,7 @@ import androidx.compose.ui.unit.dp
 fun LoadingState(
   icon: ImageVector = Icons.Filled.FolderOpen,
   title: String = "Scanning for videos...",
-  message: String = "Please wait while we search your device",
+  message: String = "正在搜索设备，请稍候",
   modifier: Modifier = Modifier,
 ) {
   // Animated alpha for subtle pulsing effect (same as EmptyState)

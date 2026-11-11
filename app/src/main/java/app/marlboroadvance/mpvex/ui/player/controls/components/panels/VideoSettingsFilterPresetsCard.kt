@@ -30,6 +30,8 @@ import app.marlboroadvance.mpvex.ui.player.controls.panelCardsColors
 import app.marlboroadvance.mpvex.ui.theme.spacing
 import `is`.xyz.mpv.MPVLib
 import org.koin.compose.koinInject
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
@@ -65,7 +67,7 @@ fun VideoSettingsFilterPresetsCard(modifier: Modifier = Modifier) {
         horizontalArrangement = Arrangement.spacedBy(MaterialTheme.spacing.medium),
       ) {
         Icon(Icons.Default.AutoAwesome, null)
-        Text("Filter Presets")
+        Text(stringResource(R.string.filter_presets))
       }
     },
     colors = panelCardsColors(),

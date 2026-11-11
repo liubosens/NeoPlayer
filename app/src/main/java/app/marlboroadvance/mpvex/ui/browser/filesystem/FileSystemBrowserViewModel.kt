@@ -331,7 +331,7 @@ class FileSystemBrowserViewModel(
         // Special case: Show storage roots at the special marker
         // Similar to Fossify's StoragePickerDialog logic
         if (path == STORAGE_ROOTS_MARKER) {
-          Log.d(TAG, "Loading storage roots")
+          Log.d(TAG, "正在加载存储根目录")
           _breadcrumbs.value = emptyList()
           val roots = MediaFileRepository.getStorageRoots(getApplication())
           _unsortedItems.value = roots

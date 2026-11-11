@@ -13,7 +13,7 @@ const iconMap: Record<string, React.ReactNode> = {
     <div className="relative w-32 h-12">
       <Image
         src="/izzy.svg"
-        alt="Get it at IzzyOnDroid"
+        alt="在 IzzyOnDroid 获取"
         fill
         className="object-contain"
       />
@@ -31,12 +31,11 @@ export function DownloadsSection({ downloadUrl }: { downloadUrl?: string }) {
       <div className="max-w-7xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-6xl font-bold mb-6 text-center tracking-tight">
           <span className="bg-clip-text text-transparent bg-linear-to-r from-foreground via-foreground/80 to-foreground/40">
-            Get it on
+            下载渠道
           </span>
         </h2>
         <p className="text-lg text-muted-foreground text-center mb-20 max-w-2xl mx-auto">
-          Download mpvExtended from your preferred source and start experiencing
-          premium playback today.
+          从你偏好的渠道下载 mpvExtended，即刻开启出色的播放体验。
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -64,7 +63,7 @@ export function DownloadsSection({ downloadUrl }: { downloadUrl?: string }) {
                 <Button
                   className="w-full h-12 bg-secondary hover:bg-secondary/80 text-secondary-foreground rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-lg cursor-pointer"
                   onClick={() => {
-                    if (option.title === "Preview Builds" && downloadUrl) {
+                    if (option.title === "预览版" && downloadUrl) {
                       window.open(downloadUrl, "_blank");
                     } else {
                       window.open(option.link, "_blank");

@@ -398,7 +398,7 @@ object PermissionUtils {
             Result.success(Unit)
           } else {
             Log.w(TAG, "✗ Rename failed: ${video.displayName}")
-            Result.failure(IllegalStateException("Rename operation failed"))
+            Result.failure(IllegalStateException("重命名操作失败"))
           }
         } catch (e: Exception) {
           Log.e(TAG, "✗ Error renaming ${video.displayName}", e)
@@ -447,7 +447,7 @@ object PermissionUtils {
             Result.success(Unit)
           } else {
             Log.w(TAG, "✗ Rename failed (scoped): ${video.displayName}")
-            Result.failure(IllegalStateException("Rename operation failed"))
+            Result.failure(IllegalStateException("重命名操作失败"))
           }
         } catch (e: Exception) {
           Log.e(TAG, "✗ Error renaming (scoped) ${video.displayName}", e)

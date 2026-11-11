@@ -123,7 +123,7 @@ object CopyPasteOps {
       try {
         // Validate inputs
         if (videos.isEmpty()) {
-          return@withContext Result.failure(IllegalArgumentException("No files to copy"))
+          return@withContext Result.failure(IllegalArgumentException("没有可复制的文件"))
         }
 
         val copiedFilePaths =
@@ -154,7 +154,7 @@ object CopyPasteOps {
 
             if (validVideos.isEmpty()) {
               return@withContext Result.failure(
-                IllegalArgumentException("No valid files to copy"),
+                IllegalArgumentException("没有可复制的有效文件"),
               )
             }
 
@@ -179,7 +179,7 @@ object CopyPasteOps {
         Log.e(TAG, "Copy operation failed: ${e.message}", e)
         _operationProgress.value =
           _operationProgress.value.copy(
-            error = e.message ?: "Unknown error occurred",
+            error = e.message ?: "发生未知错误",
           )
         Result.failure(e)
       }
@@ -201,7 +201,7 @@ object CopyPasteOps {
       try {
         // Validate inputs
         if (videos.isEmpty()) {
-          return@withContext Result.failure(IllegalArgumentException("No files to move"))
+          return@withContext Result.failure(IllegalArgumentException("没有可移动的文件"))
         }
 
         val movedFilePaths =
@@ -260,7 +260,7 @@ object CopyPasteOps {
         Log.e(TAG, "Move operation failed: ${e.message}", e)
         _operationProgress.value =
           _operationProgress.value.copy(
-            error = e.message ?: "Unknown error occurred",
+            error = e.message ?: "发生未知错误",
           )
         Result.failure(e)
       }
@@ -277,7 +277,7 @@ object CopyPasteOps {
     withContext(Dispatchers.IO) {
       try {
         if (videos.isEmpty()) {
-          return@withContext Result.failure(IllegalArgumentException("No files to copy"))
+          return@withContext Result.failure(IllegalArgumentException("没有可复制的文件"))
         }
 
         resetOperation()
@@ -289,7 +289,7 @@ object CopyPasteOps {
         Log.e(TAG, "Copy (tree) failed: ${e.message}", e)
         _operationProgress.value =
           _operationProgress.value.copy(
-            error = e.message ?: "Unknown error occurred",
+            error = e.message ?: "发生未知错误",
           )
         Result.failure(e)
       }
@@ -306,7 +306,7 @@ object CopyPasteOps {
     withContext(Dispatchers.IO) {
       try {
         if (videos.isEmpty()) {
-          return@withContext Result.failure(IllegalArgumentException("No files to move"))
+          return@withContext Result.failure(IllegalArgumentException("没有可移动的文件"))
         }
 
         resetOperation()
@@ -337,7 +337,7 @@ object CopyPasteOps {
         Log.e(TAG, "Move (tree) failed: ${e.message}", e)
         _operationProgress.value =
           _operationProgress.value.copy(
-            error = e.message ?: "Unknown error occurred",
+            error = e.message ?: "发生未知错误",
           )
         Result.failure(e)
       }
@@ -532,7 +532,7 @@ object CopyPasteOps {
       }
 
     if (validVideos.isEmpty()) {
-      throw IllegalArgumentException("No valid files to copy")
+      throw IllegalArgumentException("没有可复制的有效文件")
     }
 
     val totalBytes = validVideos.sumOf { it.size.coerceAtLeast(0L) }
@@ -1023,9 +1023,9 @@ object CopyPasteOps {
       _operationProgress.value =
         _operationProgress.value.copy(
           isCancelled = true,
-          error = "Operation cancelled by user",
+          error = "用户已取消操作",
         )
-      throw IOException("Operation cancelled by user")
+      throw IOException("用户已取消操作")
     }
   }
 

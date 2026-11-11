@@ -12,7 +12,7 @@ export const siteConfig = {
   name: "mpvExtended",
   version: "v1.2.7",
   description:
-    "Advanced mpv-based video player for Android with powerful features, seamless playback, and open-source freedom.",
+    "基于 mpv 打造的 Android 高级视频播放器，功能强大、播放流畅，开源免费。",
   url: "https://mpvex.vercel.app",
   ogImage: "https://mpvex.vercel.app/og.jpg",
   icons: {

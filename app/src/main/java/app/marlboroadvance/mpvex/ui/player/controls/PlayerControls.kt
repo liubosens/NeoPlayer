@@ -549,12 +549,12 @@ fun PlayerControls(
               val mode = (currentPlayerUpdate as PlayerUpdates.RepeatMode).mode
               val text = when (mode) {
                 app.marlboroadvance.mpvex.ui.player.RepeatMode.OFF -> "Repeat: Off"
-                app.marlboroadvance.mpvex.ui.player.RepeatMode.ONE -> "Repeat: Current file"
+                app.marlboroadvance.mpvex.ui.player.RepeatMode.ONE -> "循环：当前文件"
                 app.marlboroadvance.mpvex.ui.player.RepeatMode.ALL -> {
                   if (playlistMode && viewModel.hasPlaylistSupport()) {
                     "Repeat: All playlist"
                   } else {
-                    "Repeat: Current file"
+                    "循环：当前文件"
                   }
                 }
               }
@@ -687,7 +687,7 @@ fun PlayerControls(
                   ) {
                     Icon(
                       imageVector = Icons.Default.SkipPrevious,
-                      contentDescription = "Previous",
+                      contentDescription = "上一个",
                       tint =
                         if (viewModel.hasPrevious()) {
                           if (hideBackground) controlColor else MaterialTheme.colorScheme.onSurface
@@ -785,7 +785,7 @@ fun PlayerControls(
                   ) {
                     Icon(
                       imageVector = Icons.Default.SkipNext,
-                      contentDescription = "Next",
+                      contentDescription = "下一个",
                       tint =
                         if (viewModel.hasNext()) {
                           if (hideBackground) controlColor else MaterialTheme.colorScheme.onSurface

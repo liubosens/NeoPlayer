@@ -31,6 +31,8 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import app.marlboroadvance.mpvex.ui.theme.spacing
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @SuppressLint("UnrememberedMutableState")
 @Composable
@@ -104,8 +106,8 @@ private fun PreviewExpandableCard() {
 
   ExpandableCard(
     isExpanded,
-    title = { Text("Hello World") },
-    content = { Text("SPOjao;sjd") },
+    title = { Text(stringResource(R.string.hello_world)) },
+    content = { Text(stringResource(R.string.expandable_card_preview_content)) },
     onExpand = { isExpanded = it },
   )
 }

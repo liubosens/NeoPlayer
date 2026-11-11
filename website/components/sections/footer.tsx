@@ -12,7 +12,7 @@ export function Footer() {
         {/* Acknowledgments Section */}
         <div className="text-center mb-12">
           <h3 className="text-lg font-semibold text-foreground mb-4">
-            Acknowledgments
+            致谢
           </h3>
           <div className="flex flex-wrap items-center justify-center gap-6">
             <a
@@ -59,12 +59,12 @@ export function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center sm:text-left">
           <p className="text-sm text-muted-foreground">
-            Made with
+            用心制作
             <Heart
               className="inline w-4 h-4 text-red-500 mx-1"
               fill="currentColor"
             />
-            by{" "}
+            ，作者{" "}
             <a
               href="https://riteshdpandit.vercel.app/"
               target="_blank"
@@ -86,7 +86,7 @@ export function Footer() {
           </a>
           <span className="text-muted-foreground/30">•</span>
           <p className="text-sm text-muted-foreground">
-            {`© ${currentYear} mpvExtended Project. Apache 2.0 License`}
+            {`© ${currentYear} mpvExtended 项目 · Apache 2.0 许可证`}
           </p>
         </div>
       </div>

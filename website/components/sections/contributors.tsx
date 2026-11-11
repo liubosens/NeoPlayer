@@ -29,16 +29,16 @@ export function ContributorsSection() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-foreground mb-4 text-balance">
-            Contributors
+            贡献者
           </h2>
           <p className="text-lg text-muted-foreground text-balance">
-            Amazing people making mpvExtended better every day
+            一群出色的开发者，让 mpvExtended 每天变得更好
           </p>
         </div>
 
         {loading ? (
           <div className="flex justify-center items-center py-20">
-            <div className="text-muted-foreground">Loading contributors...</div>
+            <div className="text-muted-foreground">正在加载贡献者…</div>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -67,7 +67,7 @@ export function ContributorsSection() {
                       {contributor.login}
                     </p>
                     <p className="text-xs text-muted-foreground mt-1">
-                      {contributor.contributions} commits
+                      {contributor.contributions} 次提交
                     </p>
                   </div>
                   <Github className="w-4 h-4 text-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -84,7 +84,7 @@ export function ContributorsSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full transition-all duration-300 hover:shadow-lg"
           >
-            View all contributors
+            查看全部贡献者
             <Github className="w-4 h-4" />
           </a>
         </div>

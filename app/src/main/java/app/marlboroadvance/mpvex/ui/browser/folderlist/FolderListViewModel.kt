@@ -320,7 +320,7 @@ class FolderListViewModel(
         
         if (!hasExistingData) {
           _isLoading.value = true
-          _scanStatus.value = "Scanning storage..."
+          _scanStatus.value = "正在扫描存储…"
         }
 
         // Capture current state for comparison
@@ -402,7 +402,7 @@ class FolderListViewModel(
 
         // PHASE 2: Background Enrichment (only if duration chip is enabled)
         _isEnriching.value = true
-        _scanStatus.value = "Processing metadata..."
+        _scanStatus.value = "正在处理元数据…"
         
         val enrichedFolders = MetadataRetrieval.enrichFoldersIfNeeded(
             context = getApplication(),

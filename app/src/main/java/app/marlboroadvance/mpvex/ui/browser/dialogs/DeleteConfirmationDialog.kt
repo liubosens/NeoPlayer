@@ -21,6 +21,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.stringResource
+import app.marlboroadvance.mpvex.R
 
 @OptIn(ExperimentalMaterial3ExpressiveApi::class)
 @Composable
@@ -125,7 +127,7 @@ fun DeleteConfirmationDialog(
         shape = MaterialTheme.shapes.extraLarge,
       ) {
         Text(
-          text = "Delete",
+          text = "删除",
           fontWeight = FontWeight.Bold,
         )
       }
@@ -135,7 +137,7 @@ fun DeleteConfirmationDialog(
         onClick = onDismiss,
         shape = MaterialTheme.shapes.extraLarge,
       ) {
-        Text("Cancel", fontWeight = FontWeight.Medium)
+        Text(stringResource(R.string.generic_cancel), fontWeight = FontWeight.Medium)
       }
     },
     containerColor = MaterialTheme.colorScheme.surface,

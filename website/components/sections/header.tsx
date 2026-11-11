@@ -50,7 +50,7 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
           <div className="relative w-10 h-10 flex items-center justify-center shrink-0 bg-foreground/5 dark:bg-white/5 rounded-xl overflow-hidden border border-border/50 shadow-sm transition-transform duration-300 group-hover:scale-110">
             <Image
               src="/icon.png"
-              alt="mpvEx Logo"
+              alt="mpvEx 图标"
               width={40}
               height={40}
               priority
@@ -65,9 +65,9 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
         {/* Desktop Navigation - Absolute Center */}
         <div className="hidden lg:flex items-center gap-2 absolute left-1/2 transform -translate-x-1/2">
           {[
-            { name: "Features", href: "#features" },
-            { name: "Screenshots", href: "#screenshots" },
-            { name: "Contributors", href: "#contributors" },
+            { name: "功能特性", href: "#features" },
+            { name: "应用截图", href: "#screenshots" },
+            { name: "贡献者", href: "#contributors" },
           ].map((item) => (
             <Link
               key={item.name}
@@ -94,7 +94,7 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-foreground/5 hover:bg-foreground/10 transition-all text-sm text-foreground/80 hover:text-foreground border border-transparent hover:border-foreground/10"
           >
             <Star className="w-4 h-4 fill-primary/20 text-primary" />
-            <span className="hidden sm:inline">Star</span>
+            <span className="hidden sm:inline">加星标</span>
           </button>
 
           {/* Theme Toggle */}
@@ -120,7 +120,7 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
               )
             }
           >
-            Download
+            下载
           </Button>
         </div>
 
@@ -132,7 +132,7 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="p-2 w-10 h-10 flex items-center justify-center bg-foreground/5 hover:bg-foreground/10 rounded-2xl transition-all active:scale-95 font-bold"
-            aria-label="Toggle Menu"
+            aria-label="切换菜单"
           >
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -148,9 +148,9 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
 
           <div className="flex flex-col gap-2 relative z-10">
             {[
-              { name: "Features", href: "#features" },
-              { name: "Screenshots", href: "#screenshots" },
-              { name: "Contributors", href: "#contributors" },
+              { name: "功能特性", href: "#features" },
+              { name: "应用截图", href: "#screenshots" },
+              { name: "贡献者", href: "#contributors" },
             ].map((item) => (
               <div key={item.name}>
                 <Link
@@ -183,7 +183,7 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
                   setIsOpen(false);
                 }}
               >
-                Download Latest
+                下载最新版
               </Button>
             </div>
 
@@ -202,7 +202,7 @@ export function Header({ downloadUrl }: { downloadUrl?: string }) {
                 className="flex items-center gap-1 text-xs font-medium"
               >
                 <Star className="w-4 h-4" />
-                Star on GitHub
+                在 GitHub 上加星
               </a>
             </div>
           </div>

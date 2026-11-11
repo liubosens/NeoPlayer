@@ -99,7 +99,7 @@ object AdvancedPreferencesScreen : Screen {
               onFailure = { error ->
                 Toast.makeText(
                   context,
-                  "Export failed: ${error.message}",
+                  context.getString(R.string.toast_export_failed, error.message),
                   Toast.LENGTH_LONG,
                 ).show()
               },
@@ -123,7 +123,7 @@ object AdvancedPreferencesScreen : Screen {
               onFailure = { error ->
                 Toast.makeText(
                   context,
-                  "Import failed: ${error.message}",
+                  context.getString(R.string.toast_import_failed, error.message),
                   Toast.LENGTH_LONG,
                 ).show()
               },
@@ -136,21 +136,19 @@ object AdvancedPreferencesScreen : Screen {
     if (showExportDialog && exportStats != null) {
       AlertDialog(
         onDismissRequest = { showExportDialog = false },
-        title = { Text("Export Complete") },
+        title = { Text(stringResource(R.string.export_complete)) },
         text = {
           Column(
             modifier = Modifier
               .fillMaxWidth()
               .verticalScroll(rememberScrollState()),
           ) {
-            Text(
-              "Successfully exported ${exportStats?.totalExported} items!\n\n"
-            )
+            Text(stringResource(R.string.export_stats_summary, exportStats?.totalExported))
           }
         },
         confirmButton = {
           TextButton(onClick = { showExportDialog = false }) {
-            Text("OK")
+            Text(stringResource(R.string.generic_ok))
           }
         },
       )
@@ -160,18 +158,20 @@ object AdvancedPreferencesScreen : Screen {
     if (showImportDialog && importStats != null) {
       AlertDialog(
         onDismissRequest = { showImportDialog = false },
-        title = { Text("Import Complete") },
+        title = { Text(stringResource(R.string.import_complete)) },
         text = {
           Text(
-            "Successfully imported: ${importStats?.imported}\n" +
-              "Failed: ${importStats?.failed}\n" +
-              "Version: ${importStats?.version}\n\n" +
-              "Please restart the app for all changes to take effect.",
+            stringResource(
+              R.string.import_stats_detail,
+              importStats?.imported,
+              importStats?.failed,
+              importStats?.version,
+            )
           )
         },
         confirmButton = {
           TextButton(onClick = { showImportDialog = false }) {
-            Text("OK")
+            Text(stringResource(R.string.generic_ok))
           }
         },
       )
@@ -233,11 +233,11 @@ object AdvancedPreferencesScreen : Screen {
                     tree.createFile("application/octet-stream", "mpv.conf")
                   }
                   withContext(Dispatchers.Main) {
-                    Toast.makeText(context, "MPV directory ready ✓", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, context.getString(R.string.toast_mpv_directory_ready), Toast.LENGTH_SHORT).show()
                   }
                 }
               }.onFailure { e ->
-                android.util.Log.e("AdvancedPrefs", "Error creating MPV directory structure", e)
+                android.util.Log.e("AdvancedPrefs", "创建 MPV 目录结构失败", e)
               }
             }
           }
@@ -249,16 +249,16 @@ object AdvancedPreferencesScreen : Screen {
         ) {
           // Backup & Restore Section
           item {
-            PreferenceSectionHeader(title = "Backup & Restore")
+            PreferenceSectionHeader(title = "备份与恢复")
           }
           
           item {
             PreferenceCard {
               Preference(
-                title = { Text(text = "Export Settings") },
+                title = { Text(text = "导出设置") },
                 summary = { 
                   Text(
-                    text = "Export settings to an XML file",
+                    text = "将设置导出为 XML 文件",
                     color = MaterialTheme.colorScheme.outline,
                   ) 
                 },
@@ -277,10 +277,10 @@ object AdvancedPreferencesScreen : Screen {
               PreferenceDivider()
               
               Preference(
-                title = { Text(text = "Import Settings") },
+                title = { Text(text = "导入设置") },
                 summary = { 
                   Text(
-                    text = "Import settings from an XML file",
+                    text = "从 XML 文件导入设置",
                     color = MaterialTheme.colorScheme.outline,
                   ) 
                 },
@@ -300,7 +300,7 @@ object AdvancedPreferencesScreen : Screen {
           
           // MPV Configuration Section
           item {
-            PreferenceSectionHeader(title = "MPV Configuration")
+            PreferenceSectionHeader(title = "MPV 配置")
           }
           
           item {
@@ -400,8 +400,7 @@ object AdvancedPreferencesScreen : Screen {
                       color = MaterialTheme.colorScheme.outline,
                     )
                   } else {
-                    Text(
-                      "Tap to edit configuration",
+                    Text(stringResource(R.string.tap_to_edit_configuration),
                       color = MaterialTheme.colorScheme.outline,
                     )
                   }
@@ -423,8 +422,7 @@ object AdvancedPreferencesScreen : Screen {
                       color = MaterialTheme.colorScheme.outline,
                     )
                   } else {
-                    Text(
-                      "Tap to edit configuration",
+                    Text(stringResource(R.string.tap_to_edit_configuration),
                       color = MaterialTheme.colorScheme.outline,
                     )
                   }
@@ -439,7 +437,7 @@ object AdvancedPreferencesScreen : Screen {
           // Scripts Section
           // History Section
           item {
-            PreferenceSectionHeader(title = "History")
+            PreferenceSectionHeader(title = "历史记录")
           }
           
           item {
@@ -507,7 +505,7 @@ object AdvancedPreferencesScreen : Screen {
           
           // Cache Section
           item {
-            PreferenceSectionHeader(title = "Cache")
+            PreferenceSectionHeader(title = "缓存")
           }
           
           item {
@@ -517,10 +515,10 @@ object AdvancedPreferencesScreen : Screen {
               val thumbnailRepository = koinInject<ThumbnailRepository>()
               
               Preference(
-                title = { Text(text = "Clear config cache") },
+                title = { Text(text = "清除配置缓存") },
                 summary = { 
                   Text(
-                    text = "Clear the cached mpv.conf settings",
+                    text = "清除缓存的 mpv.conf 设置",
                     color = MaterialTheme.colorScheme.outline,
                   ) 
                 },
@@ -535,7 +533,7 @@ object AdvancedPreferencesScreen : Screen {
                       Toast
                         .makeText(
                           context,
-                          "Config cache cleared",
+                          "配置缓存已清除",
                           Toast.LENGTH_SHORT,
                         ).show()
                     }
@@ -546,10 +544,10 @@ object AdvancedPreferencesScreen : Screen {
               PreferenceDivider()
 
               Preference(
-                title = { Text(text = "Clear thumbnail cache") },
+                title = { Text(text = "清除缩略图缓存") },
                 summary = {
                   Text(
-                    text = "Delete all cached video thumbnails (will regenerate as you browse folders)",
+                    text = "删除所有已缓存的视频缩略图（浏览文件夹时会重新生成）",
                     color = MaterialTheme.colorScheme.outline,
                   )
                 },
@@ -558,8 +556,8 @@ object AdvancedPreferencesScreen : Screen {
 
               if (isClearThumbsConfirmShown) {
                 ConfirmDialog(
-                  title = "Clear thumbnail cache?",
-                  subtitle = "This will delete cached thumbnails from storage and memory.",
+                  title = "清除缩略图缓存？",
+                  subtitle = "这将从存储和内存中删除缓存的缩略图。",
                   onConfirm = {
                     scope.launch(Dispatchers.IO) {
                       runCatching {
@@ -567,12 +565,12 @@ object AdvancedPreferencesScreen : Screen {
                       }.onSuccess {
                         withContext(Dispatchers.Main) {
                           isClearThumbsConfirmShown = false
-                          Toast.makeText(context, "Thumbnail cache cleared", Toast.LENGTH_SHORT).show()
+                          Toast.makeText(context, context.getString(R.string.toast_thumbnail_cache_cleared), Toast.LENGTH_SHORT).show()
                         }
                       }.onFailure { error ->
                         withContext(Dispatchers.Main) {
                           isClearThumbsConfirmShown = false
-                          Toast.makeText(context, "Failed to clear: ${error.message}", Toast.LENGTH_LONG).show()
+                          Toast.makeText(context, context.getString(R.string.toast_clear_failed, error.message), Toast.LENGTH_LONG).show()
                         }
                       }
                     }
@@ -587,7 +585,7 @@ object AdvancedPreferencesScreen : Screen {
                 title = { Text(text = stringResource(id = R.string.pref_advanced_clear_fonts_cache)) },
                 summary = { 
                   Text(
-                    text = "Remove all cached subtitle fonts",
+                    text = "清除所有缓存的字幕字体",
                     color = MaterialTheme.colorScheme.outline,
                   ) 
                 },
@@ -622,7 +620,7 @@ object AdvancedPreferencesScreen : Screen {
           
           // Logging Section
           item {
-            PreferenceSectionHeader(title = "Logging")
+            PreferenceSectionHeader(title = "日志")
           }
           
           item {

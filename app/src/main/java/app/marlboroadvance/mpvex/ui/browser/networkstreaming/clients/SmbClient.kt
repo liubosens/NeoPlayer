@@ -150,7 +150,7 @@ class SmbClient(private val connection: NetworkConnection) : NetworkClient {
         } catch (e: kotlinx.coroutines.TimeoutCancellationException) {
           Result.failure(Exception("Connection timeout. Server not responding."))
         } catch (e: Exception) {
-          Result.failure(Exception("Connection failed: ${e.message ?: "Unknown error"}"))
+          Result.failure(Exception("Connection failed: ${e.message ?: "未知错误"}"))
         }
 
         connectionResult
@@ -197,7 +197,7 @@ class SmbClient(private val connection: NetworkConnection) : NetworkClient {
           }
         }
 
-        val sess = session ?: return@withContext Result.failure(Exception("Not connected"))
+        val sess = session ?: return@withContext Result.failure(Exception("未连接"))
 
         android.util.Log.d("SmbClient", "=== listFiles called ===")
         android.util.Log.d("SmbClient", "  Input path: '$path'")
@@ -336,7 +336,7 @@ class SmbClient(private val connection: NetworkConnection) : NetworkClient {
   override suspend fun getFileStream(path: String): Result<InputStream> =
     withContext(Dispatchers.IO) {
       try {
-        val sess = session ?: return@withContext Result.failure(Exception("Not connected"))
+        val sess = session ?: return@withContext Result.failure(Exception("未连接"))
 
         // Parse the SMB path to get relative path within share
         val relativePath = when {

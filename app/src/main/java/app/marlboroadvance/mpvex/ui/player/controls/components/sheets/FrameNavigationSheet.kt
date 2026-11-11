@@ -624,7 +624,7 @@ private suspend fun takeSnapshot(
       // Check if file was created
       if (!tempFile.exists() || tempFile.length() == 0L) {
         withContext(Dispatchers.Main) {
-          Toast.makeText(context, "Failed to create screenshot", Toast.LENGTH_SHORT).show()
+          Toast.makeText(context, context.getString(R.string.toast_screenshot_failed), Toast.LENGTH_SHORT).show()
         }
         return@withContext
       }
@@ -717,7 +717,7 @@ private suspend fun takeSnapshot(
       }
     } catch (e: Exception) {
       withContext(Dispatchers.Main) {
-        Toast.makeText(context, "Failed to save snapshot: ${e.message}", Toast.LENGTH_LONG).show()
+        Toast.makeText(context, context.getString(R.string.toast_snapshot_save_failed, e.message), Toast.LENGTH_LONG).show()
       }
     }
   }
