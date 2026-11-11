@@ -143,7 +143,7 @@ object AdvancedPreferencesScreen : Screen {
               .fillMaxWidth()
               .verticalScroll(rememberScrollState()),
           ) {
-            Text(stringResource(R.string.export_stats_summary, exportStats?.totalExported))
+            Text(stringResource(R.string.export_stats_summary, exportStats?.totalExported ?: 0))
           }
         },
         confirmButton = {
@@ -163,9 +163,9 @@ object AdvancedPreferencesScreen : Screen {
           Text(
             stringResource(
               R.string.import_stats_detail,
-              importStats?.imported,
-              importStats?.failed,
-              importStats?.version,
+              importStats?.imported ?: 0,
+              importStats?.failed ?: 0,
+              importStats?.version ?: "",
             )
           )
         },
